@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import uk.co.senab.photoview.PhotoViewAttacher
 
 class EcActivity : AppCompatActivity() {
 
@@ -15,6 +16,9 @@ class EcActivity : AppCompatActivity() {
         val buttonFloor1 = findViewById(R.id.ec_floor1) as? Button
         val buttonFloor2 = findViewById(R.id.ec_floor2) as? Button
         val image = findViewById(R.id.ecImage) as? ImageView
+
+        val photoView = PhotoViewAttacher(image)
+        photoView.update()
 
         buttonFloor1?.setOnClickListener {
                 println("You clicked on floor1")
