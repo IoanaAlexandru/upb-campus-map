@@ -29,20 +29,19 @@
             android:background="@drawable/bg_round">
     </SearchView>
 
-    <ImageView
+    <ImageButton
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:id="@+id/ecImage"
             android:contentDescription="@string/ec"
-            android:background="@drawable/ec_parter"/>
+            android:background="@android:color/white"/>
 
     <LinearLayout android:orientation="horizontal"
                   android:layout_width="52dp" android:layout_height="wrap_content"
-                  android:layout_marginBottom="130dp"
+                  android:layout_margin="16dp"
                   android:layout_alignParentBottom="true"
-                  android:layout_alignParentRight="true"
-                  android:id="@+id/ec_floor_tabs" android:layout_marginTop="16dp"
-                  android:layout_marginStart="16dp" android:layout_marginEnd="16dp">
+                  android:layout_alignParentEnd="true"
+                  android:id="@+id/ec_floor_tabs">
         <TabWidget android:id="@android:id/tabs"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
@@ -56,45 +55,16 @@
                     android:id="@+id/ec_floor1"
                     android:text="@string/_1"
                     android:background="@color/colorGray"
-                    android:textColor="@color/colorBlack" android:textSize="18sp"/>
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp"/>
             <Button android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_weight="1.0"
                     android:id="@+id/ec_floor2"
                     android:background="@color/colorWhite"
                     android:text="@string/_2"
-                    android:textColor="@color/colorDarkGray" android:textSize="18sp"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout android:orientation="horizontal"
-                  android:layout_width="52dp" android:layout_height="wrap_content"
-                  android:layout_margin="16dp"
-                  android:layout_alignParentBottom="true"
-                  android:layout_alignParentRight="true">
-        <TabWidget android:id="@android:id/tabs"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:visibility="gone"/>
-        <LinearLayout android:layout_width="fill_parent"
-                      android:layout_height="fill_parent"
-                      android:orientation="vertical">
-            <Button android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1.0"
-                    android:id="@+id/zoom_in"
-                    android:text="@string/zoom_in"
-                    android:background="@color/colorWhite"
                     android:textColor="@color/colorDarkGray"
-                    android:textSize="30sp"/>
-            <Button android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1.0"
-                    android:id="@+id/zoom_out"
-                    android:background="@color/colorWhite"
-                    android:text="@string/zoom_out"
-                    android:textColor="@color/colorDarkGray"
-                    android:textSize="30sp"/>
+                    android:textSize="18sp"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
