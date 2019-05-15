@@ -1,4 +1,4 @@
-package com.example.upbcampus;
+package com.example.upbcampus.buildings;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.example.upbcampus.R;
 
 import java.util.ArrayList;
 

@@ -9,9 +9,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".EdActivity">
+        <activity android:name=".buildings.EdActivity">
         </activity>
-        <activity android:name=".EcActivity">
+        <activity android:name=".buildings.EcActivity">
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>

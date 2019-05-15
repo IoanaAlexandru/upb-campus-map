@@ -1,4 +1,4 @@
-package com.example.upbcampus
+package com.example.upbcampus.buildings
 
 class DataModel(name: String, id_: Int, image: Int) {
     var name: String

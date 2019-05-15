@@ -6,7 +6,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/ec_container"
-        tools:context=".EcActivity"
+        tools:context=".buildings.EcActivity"
         android:background="@color/colorWhite">
 
     <!-- Dummy item to prevent SearchView from receiving focus -->

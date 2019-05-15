@@ -6,6 +6,9 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.SearchView
+import com.example.upbcampus.fragments.BuildingsFrag
+import com.example.upbcampus.fragments.FavouritesFrag
+import com.example.upbcampus.fragments.HistoryFrag
 import java.util.*
 
 class MainActivity : AppCompatActivity() {

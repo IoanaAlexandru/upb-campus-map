@@ -1,4 +1,4 @@
-package com.example.upbcampus
+package com.example.upbcampus.fragments
 
 import android.support.v4.app.Fragment
 

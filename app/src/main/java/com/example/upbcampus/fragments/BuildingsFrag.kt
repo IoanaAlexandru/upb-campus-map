@@ -1,4 +1,4 @@
-package com.example.upbcampus
+package com.example.upbcampus.fragments
 
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
@@ -8,11 +8,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.upbcampus.buildings.CustomAdapter
+import com.example.upbcampus.buildings.DataModel
+import com.example.upbcampus.R
 import java.util.*
 
 class BuildingsFrag : Fragment() {
     var nameArray = arrayOf("EC", "ED")
-    var drawableArray = arrayOf(com.example.upbcampus.R.drawable.ec, com.example.upbcampus.R.drawable.ed)
+    var drawableArray = arrayOf(R.drawable.ec, R.drawable.ed)
     var id_ = arrayOf(0, 1)
 
     private var adapter: RecyclerView.Adapter<*>? = null
@@ -40,11 +43,13 @@ class BuildingsFrag : Fragment() {
         /* Fill the ArrayList used in CustomAdapter */
         data = ArrayList()
         for (i in 0 until nameArray.size) {
-            data!!.add(DataModel(
-                nameArray[i],
-                id_[i],
-                drawableArray[i]
-            ))
+            data!!.add(
+                DataModel(
+                    nameArray[i],
+                    id_[i],
+                    drawableArray[i]
+                )
+            )
         }
 
         /* Set the adapter and the recyclerView */

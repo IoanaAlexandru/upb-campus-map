@@ -1,4 +1,4 @@
-package com.example.upbcampus
+package com.example.upbcampus.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
+import com.example.upbcampus.R
 import java.util.*
 
-import kotlinx.android.synthetic.main.history.view.*
 import kotlin.collections.HashMap
 
 
