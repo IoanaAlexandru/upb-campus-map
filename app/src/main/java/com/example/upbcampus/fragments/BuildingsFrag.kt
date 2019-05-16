@@ -1,18 +1,17 @@
 package com.example.upbcampus.fragments
 
+import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
-import android.os.Bundle
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.upbcampus.utils.CustomAdapter
 import com.example.upbcampus.R
+import com.example.upbcampus.utils.CustomAdapter
 import com.example.upbcampus.utils.DataModel
 import java.util.*
-
 
 class BuildingsFrag : Fragment() {
     var nameArray = arrayOf("EC", "ED")
@@ -24,8 +23,10 @@ class BuildingsFrag : Fragment() {
     private var recyclerView: RecyclerView? = null
     private var data: ArrayList<DataModel>? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         /* The Layout of this Fragment is buildings*/
         val rootView = inflater.inflate(R.layout.buildings, container, false)
 

@@ -23,8 +23,10 @@ class HistoryFrag : Fragment() {
     private val queriesByLastSearched = TreeSet<Query>(compareBy { si -> si.lastSearched })
     private val queriesByFrequency = TreeSet<Query>(compareBy { si -> si.frequency })
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         val rootView = inflater.inflate(R.layout.history, container, false)
         val listView = rootView.findViewById<View>(R.id.lv) as? ListView

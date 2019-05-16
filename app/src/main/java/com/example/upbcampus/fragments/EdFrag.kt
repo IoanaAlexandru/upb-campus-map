@@ -12,7 +12,6 @@ import com.example.upbcampus.R
 import uk.co.senab.photoview.PhotoViewAttacher
 
 class EdFrag : Fragment() {
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -76,6 +75,4 @@ class EdFrag : Fragment() {
         button?.setBackgroundColor(resources.getColor(R.color.colorGray))
         button?.setTextColor(resources.getColor(R.color.colorBlack))
     }
-
-
 }

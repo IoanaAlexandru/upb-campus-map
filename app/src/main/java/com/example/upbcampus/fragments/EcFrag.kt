@@ -11,9 +11,7 @@ import android.widget.ImageView
 import com.example.upbcampus.R
 import uk.co.senab.photoview.PhotoViewAttacher
 
-
 class EcFrag : Fragment() {
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -55,5 +53,4 @@ class EcFrag : Fragment() {
         button?.setBackgroundColor(resources.getColor(R.color.colorGray))
         button?.setTextColor(resources.getColor(R.color.colorBlack))
     }
-
 }
