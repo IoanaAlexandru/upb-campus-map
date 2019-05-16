@@ -16,6 +16,8 @@ import com.example.upbcampus.fragments.EdFrag
 
 import java.util.ArrayList
 
+class DataModel(val name: String, val id: Int, val image: Int)
+
 /**
  * This is a CustomAdapter used to display the buildings.
  * One model has an ImageView and a TextView.

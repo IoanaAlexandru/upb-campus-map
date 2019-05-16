@@ -9,9 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.upbcampus.utils.CustomAdapter
-import com.example.upbcampus.utils.DataModel
 import com.example.upbcampus.R
+import com.example.upbcampus.utils.DataModel
 import java.util.*
+
 
 class BuildingsFrag : Fragment() {
     var nameArray = arrayOf("EC", "ED")
