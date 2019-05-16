@@ -36,15 +36,17 @@ const val X = "x"
 const val Y = "y"
 
 class NodeDeserializer : JsonDeserializer<Node> {
+    // Returns a valid Node, or null if a mandatory field was missing from the JSON
     override fun deserialize(json: JsonElement?, typeOfT: Type?, context: JsonDeserializationContext?): Node? {
         json ?: return null
 
         val jsonObject = json.asJsonObject
-        val type = jsonObject.get(TYPE).asString
-        val id = jsonObject.get(ID).asInt
-        val name = jsonObject.get(NAME).asString
-        val floor = jsonObject.get(FLOOR).asInt
-        val building = when (jsonObject.get(BUILDING).asString) {
+
+        val type = jsonObject.get(TYPE)?.asString ?: return null
+        val id = jsonObject.get(ID)?.asInt ?: return null
+        val name = jsonObject.get(NAME)?.asString ?: return null
+        val floor = jsonObject.get(FLOOR)?.asInt ?: return null
+        val building = when (jsonObject.get(BUILDING)?.asString ?: return null) {
             ED -> Building.ED
             EC -> Building.EC
             else -> Building.UNKNOWN
