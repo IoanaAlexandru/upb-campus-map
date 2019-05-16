@@ -32,6 +32,8 @@ const val NORTH = "north"
 const val SOUTH = "south"
 const val EAST = "east"
 const val WEST = "west"
+const val X = "x"
+const val Y = "y"
 
 class NodeDeserializer : JsonDeserializer<Node> {
     override fun deserialize(json: JsonElement?, typeOfT: Type?, context: JsonDeserializationContext?): Node? {
@@ -48,56 +50,35 @@ class NodeDeserializer : JsonDeserializer<Node> {
             else -> Building.UNKNOWN
         }
 
-        when (type) {
-            ENTRANCE -> {
-                val from = jsonObject.get(FROM)?.asInt
-                val to = jsonObject.get(TO).asInt
-                return Entrance(id, name, floor, building, from, to)
-            }
-            STAIRS -> {
-                val neighbor = jsonObject.get(NEIGHBOR).asInt
-                val up = jsonObject.get(UP)?.asInt
-                val down = jsonObject.get(DOWN)?.asInt
-                return Stairs(id, name, floor, building, neighbor, up, down)
-            }
-            ELEVATOR -> {
-                val neighbor = jsonObject.get(NEIGHBOR).asInt
-                val up = jsonObject.get(UP)?.asInt
-                val down = jsonObject.get(DOWN)?.asInt
-                return Elevator(id, name, floor, building, neighbor, up, down)
-            }
-            INTERSECTION -> {
-                val north = jsonObject.get(NORTH)?.asInt
-                val south = jsonObject.get(SOUTH)?.asInt
-                val east = jsonObject.get(EAST)?.asInt
-                val west = jsonObject.get(WEST)?.asInt
-                return Intersection(id, name, floor, building, north, south, east, west)
-            }
-            LECTURE_HALL -> {
-                val neighbor = jsonObject.get(NEIGHBOR).asInt
-                return LectureHall(id, name, floor, building, neighbor)
-            }
-            LABORATORY -> {
-                val neighbor = jsonObject.get(NEIGHBOR).asInt
-                return Laboratory(id, name, floor, building, neighbor)
-            }
-            RESTROOM -> {
-                val neighbor = jsonObject.get(NEIGHBOR).asInt
-                return Restroom(id, name, floor, building, neighbor)
-            }
-            CLASSROOM -> {
-                val neighbor = jsonObject.get(NEIGHBOR).asInt
-                return Classroom(id, name, floor, building, neighbor)
-            }
-            OFFICE -> {
-                val neighbor = jsonObject.get(NEIGHBOR).asInt
-                return Office(id, name, floor, building, neighbor)
-            }
-            STORE -> {
-                val neighbor = jsonObject.get(NEIGHBOR).asInt
-                return Store(id, name, floor, building, neighbor)
-            }
-            else -> return UnknownRoom(id, name, floor, building, 0)
+        val from = jsonObject.get(FROM)?.asInt
+        val to = jsonObject.get(TO)?.asInt
+
+        val neighbor = jsonObject.get(NEIGHBOR)?.asInt
+
+        val up = jsonObject.get(UP)?.asInt
+        val down = jsonObject.get(DOWN)?.asInt
+
+        val north = jsonObject.get(NORTH)?.asInt
+        val south = jsonObject.get(SOUTH)?.asInt
+        val east = jsonObject.get(EAST)?.asInt
+        val west = jsonObject.get(WEST)?.asInt
+
+        val x = jsonObject.get(X)?.asFloat
+        val y = jsonObject.get(Y)?.asFloat
+        val coords = if (x != null && y != null) Pair(x, y) else null
+
+        return when (type) {
+            ENTRANCE -> Entrance(id, name, floor, building, from, to ?: return null)
+            STAIRS -> Stairs(id, name, floor, building, neighbor ?: return null, up, down)
+            ELEVATOR -> Elevator(id, name, floor, building, neighbor ?: return null, up, down)
+            INTERSECTION -> Intersection(id, name, floor, building, north, south, east, west)
+            LECTURE_HALL -> LectureHall(id, name, floor, building, neighbor ?: return null, coords ?: return null)
+            LABORATORY -> Laboratory(id, name, floor, building, neighbor ?: return null, coords ?: return null)
+            RESTROOM -> Restroom(id, name, floor, building, neighbor ?: return null, coords ?: return null)
+            CLASSROOM -> Classroom(id, name, floor, building, neighbor ?: return null, coords ?: return null)
+            OFFICE -> Office(id, name, floor, building, neighbor ?: return null, coords ?: return null)
+            STORE -> Store(id, name, floor, building, neighbor ?: return null, coords ?: return null)
+            else -> return UnknownRoom(id, name, floor, building, 0, coords ?: return null)
         }
     }
 

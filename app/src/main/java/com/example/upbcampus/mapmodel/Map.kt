@@ -9,18 +9,22 @@ import com.google.gson.reflect.TypeToken
 
 // Singleton with lazy initialisation
 object UPBMap {
-    val nodes : Map<Int, Node>
+    // Nodes mapped by ID
+    val nodesById : Map<Int, Node>
+    // Nodes mapped by location (floor & building)
+    val nodesByLocation : Map<Pair<Int, Building>, Node>
 
     init {
-        // parse data file to initialise nodes
+        // parse data file to initialise nodesById
         val gsonBuilder = GsonBuilder()
         gsonBuilder.registerTypeAdapter(Node::class.java, NodeDeserializer())
         val gson = gsonBuilder.create()
 
-        val nodeListType = object : TypeToken<ArrayList<Node>>(){}.type
+        val nodeListType = object : TypeToken<List<Node?>>(){}.type
         val nodeJson = App.mResources?.openRawResource(R.raw.nodes)?.reader()
-        val nodeList = gson.fromJson<List<Node>>(nodeJson, nodeListType)
-        nodes = nodeList.map { node -> node.id to node }.toMap()
+        val nodeList = gson.fromJson<List<Node?>>(nodeJson, nodeListType)
+        nodesById = nodeList.filterNotNull().map { node -> node.id to node }.toMap()
+        nodesByLocation = nodeList.filterNotNull().map { node -> Pair(node.floor, node.building) to node }.toMap()
     }
 
     // TODO(Mark) pai nu fac eu?

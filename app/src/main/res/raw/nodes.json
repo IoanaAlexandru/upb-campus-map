@@ -41,6 +41,8 @@
     "name": "EC105",
     "floor": 0,
     "building": "EC",
+    "x": 0.14,
+    "y": 0.63,
     "neighbor": 4
   },
   {
@@ -75,6 +77,8 @@
     "name": "EC004",
     "floor": 0,
     "building": "EC",
+    "x": 0.45,
+    "y": 0.17,
     "neighbor": 8
   },
   {
@@ -83,6 +87,8 @@
     "name": "EC001",
     "floor": 0,
     "building": "EC",
+    "x": 0.58,
+    "y": 0.77,
     "neighbor": 8
   },
   {
@@ -100,6 +106,8 @@
     "name": "Xerox",
     "floor": 0,
     "building": "EC",
+    "x": 0.6,
+    "y": 0.17,
     "neighbor": 11
   },
   {
@@ -117,6 +125,8 @@
     "name": "EC003",
     "floor": 0,
     "building": "EC",
+    "x": 0.75,
+    "y": 0.17,
     "neighbor": 13
   },
   {
@@ -125,6 +135,8 @@
     "name": "EC002",
     "floor": 0,
     "building": "EC",
+    "x": 0.78,
+    "y": 0.77,
     "neighbor": 13
   }
 ]

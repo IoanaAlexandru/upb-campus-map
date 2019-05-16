@@ -5,7 +5,7 @@ enum class Building { EC, ED, UNKNOWN }
 abstract class Node(
     val id: Int, val name: String, val floor: Int, val building: Building
 ) {
-    abstract fun getNeighbours() : List<Node>
+    abstract fun getNeighbours(): List<Node>
 }
 
 class Entrance(
@@ -14,7 +14,7 @@ class Entrance(
 ) :
     Node(id, name, floor, building) {
     override fun getNeighbours(): List<Node> {
-        return mutableListOf(from, to).mapNotNull { UPBMap.nodes[it] }
+        return mutableListOf(from, to).mapNotNull { UPBMap.nodesById[it] }
     }
 }
 
@@ -30,7 +30,7 @@ class Stairs(
 ) :
     Vertical(id, name, floor, building, neighbor, up, down) {
     override fun getNeighbours(): List<Node> {
-        return mutableListOf(up, down).mapNotNull { UPBMap.nodes[it] }
+        return mutableListOf(up, down).mapNotNull { UPBMap.nodesById[it] }
     }
 }
 
@@ -40,7 +40,7 @@ class Elevator(
 ) :
     Vertical(id, name, floor, building, neighbor, up, down) {
     override fun getNeighbours(): List<Node> {
-        return mutableListOf(up, down).mapNotNull { UPBMap.nodes[it] }
+        return mutableListOf(up, down).mapNotNull { UPBMap.nodesById[it] }
     }
 }
 
@@ -50,58 +50,58 @@ class Intersection(
 ) :
     Node(id, name, floor, building) {
     override fun getNeighbours(): List<Node> {
-        return mutableListOf(north, east, south, west).mapNotNull { UPBMap.nodes[it] }
+        return mutableListOf(north, east, south, west).mapNotNull { UPBMap.nodesById[it] }
     }
 }
 
 abstract class Room(
     id: Int, name: String, floor: Int, building: Building,
-    val neighbor: Int
+    val neighbor: Int, val coords: Pair<Float, Float>
 ) :
     Node(id, name, floor, building) {
     override fun getNeighbours(): List<Node> {
-        return mutableListOf<Int?>(neighbor).mapNotNull { UPBMap.nodes[it] }
+        return mutableListOf<Int?>(neighbor).mapNotNull { UPBMap.nodesById[it] }
     }
 }
 
 class LectureHall(
     id: Int, name: String, floor: Int, building: Building,
-    neighbor: Int
+    neighbor: Int, coords: Pair<Float, Float>
 ) :
-    Room(id, name, floor, building, neighbor)
+    Room(id, name, floor, building, neighbor, coords)
 
 class Laboratory(
     id: Int, name: String, floor: Int, building: Building,
-    neighbor: Int
+    neighbor: Int, coords: Pair<Float, Float>
 ) :
-    Room(id, name, floor, building, neighbor)
+    Room(id, name, floor, building, neighbor, coords)
 
 class Restroom(
     id: Int, name: String, floor: Int, building: Building,
-    neighbor: Int
+    neighbor: Int, coords: Pair<Float, Float>
 ) :
-    Room(id, name, floor, building, neighbor)
+    Room(id, name, floor, building, neighbor, coords)
 
 class Classroom(
     id: Int, name: String, floor: Int, building: Building,
-    neighbor: Int
+    neighbor: Int, coords: Pair<Float, Float>
 ) :
-    Room(id, name, floor, building, neighbor)
+    Room(id, name, floor, building, neighbor, coords)
 
 class Office(
     id: Int, name: String, floor: Int, building: Building,
-    neighbor: Int
+    neighbor: Int, coords: Pair<Float, Float>
 ) :
-    Room(id, name, floor, building, neighbor)
+    Room(id, name, floor, building, neighbor, coords)
 
 class Store(
     id: Int, name: String, floor: Int, building: Building,
-    neighbor: Int
+    neighbor: Int, coords: Pair<Float, Float>
 ) :
-    Room(id, name, floor, building, neighbor)
+    Room(id, name, floor, building, neighbor, coords)
 
 class UnknownRoom(
     id: Int, name: String, floor: Int, building: Building,
-    neighbor: Int
+    neighbor: Int, coords: Pair<Float, Float>
 ) :
-    Room(id, name, floor, building, neighbor)
+    Room(id, name, floor, building, neighbor, coords)

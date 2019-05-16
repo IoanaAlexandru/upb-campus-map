@@ -6,7 +6,7 @@ import com.example.upbcampus.mapmodel.UPBMap
 const val COST : Int = 1
 
 class Pathfinder (private val source: Node, private val target: Node) {
-    private var mapSize = UPBMap.nodes.size
+    private var mapSize = UPBMap.nodesById.size
     private var dist = IntArray(mapSize) { Int.MAX_VALUE }
     private var sptSet = BooleanArray(mapSize)
     private var parent = IntArray(mapSize) { -1 }
@@ -32,7 +32,7 @@ class Pathfinder (private val source: Node, private val target: Node) {
             val u = minDistance()
             sptSet[u] = true
 
-            UPBMap.nodes[u]?.getNeighbours()?.forEach { neighbour ->
+            UPBMap.nodesById[u]?.getNeighbours()?.forEach { neighbour ->
                 if (!sptSet[neighbour.id] &&
                     dist[u] != Int.MAX_VALUE &&
                     dist[u] + COST < dist[neighbour.id])
@@ -55,7 +55,7 @@ class Pathfinder (private val source: Node, private val target: Node) {
         var node = target
         while (node != source) {
             path.add(0, node)
-            node = UPBMap.nodes[parent[node.id]] ?: return path
+            node = UPBMap.nodesById[parent[node.id]] ?: return path
         }
 
         return path
