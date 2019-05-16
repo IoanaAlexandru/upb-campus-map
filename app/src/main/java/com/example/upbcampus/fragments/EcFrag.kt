@@ -30,8 +30,8 @@ class EcFrag : Fragment() {
         // Inflate the layout for this fragment
         val rootView = inflater.inflate(R.layout.fragment_ec, container, false)
 
-        val buttonFloor1 = rootView.findViewById(R.id.ec_floor1) as? Button
-        val buttonFloor2 = rootView.findViewById(R.id.ec_floor2) as? Button
+        val buttonFloor1 = rootView.findViewById(R.id.ec_floor0) as? Button
+        val buttonFloor2 = rootView.findViewById(R.id.ec_floor1) as? Button
         val image = rootView.findViewById(R.id.ecImage) as? ImageView
 
         val photoView = PhotoViewAttacher(image)
@@ -72,14 +72,12 @@ class EcFrag : Fragment() {
         }
 
         buttonFloor1?.setOnClickListener {
-            Log.d("EcFrag", "You clicked on floor1")
             image?.setImageResource(R.drawable.ec_parter)
             setButtonStyleBlack(buttonFloor1)
             setButtonStyleGray(buttonFloor2)
         }
 
         buttonFloor2?.setOnClickListener {
-            Log.d("EcFrag", "You clicked on floor2")
             image?.setImageResource(R.drawable.ec_etaj)
             setButtonStyleBlack(buttonFloor2)
             setButtonStyleGray(buttonFloor1)

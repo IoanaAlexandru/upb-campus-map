@@ -19,10 +19,10 @@ class EdFrag : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val rootView = inflater.inflate(R.layout.fragment_ed, container, false)
-        val buttonFloor1 = rootView.findViewById(R.id.ed_floor1) as? Button
-        val buttonFloor2 = rootView.findViewById(R.id.ed_floor2) as? Button
-        val buttonFloor3 = rootView.findViewById(R.id.ed_floor3) as? Button
-        val buttonFloor4 = rootView.findViewById(R.id.ed_floor4) as? Button
+        val buttonFloor1 = rootView.findViewById(R.id.ed_floor0) as? Button
+        val buttonFloor2 = rootView.findViewById(R.id.ed_floor1) as? Button
+        val buttonFloor3 = rootView.findViewById(R.id.ed_floor2) as? Button
+        val buttonFloor4 = rootView.findViewById(R.id.ed_floor3) as? Button
         val image = rootView.findViewById(R.id.edImage) as? ImageView
         image?.setImageResource(R.drawable.ed_parter)
 
@@ -30,7 +30,6 @@ class EdFrag : Fragment() {
         photoView.update()
 
         buttonFloor1?.setOnClickListener {
-            Log.d("EcFrag","You clicked on floor1")
             image?.setImageResource(R.drawable.ed_parter)
             setButtonStyleBlack(buttonFloor1)
             setButtonStyleGray(buttonFloor2)
@@ -39,7 +38,6 @@ class EdFrag : Fragment() {
         }
 
         buttonFloor2?.setOnClickListener {
-            Log.d("EcFrag","You clicked on floor2")
             image?.setImageResource(R.drawable.ed_etaj)
             setButtonStyleBlack(buttonFloor2)
             setButtonStyleGray(buttonFloor1)
@@ -48,7 +46,6 @@ class EdFrag : Fragment() {
         }
 
         buttonFloor3?.setOnClickListener {
-            Log.d("EcFrag","You clicked on floor2")
             image?.setImageResource(R.drawable.ed_etaj2)
             setButtonStyleBlack(buttonFloor3)
             setButtonStyleGray(buttonFloor1)
@@ -57,7 +54,6 @@ class EdFrag : Fragment() {
         }
 
         buttonFloor4?.setOnClickListener {
-            Log.d("EcFrag","You clicked on floor2")
             image?.setImageResource(R.drawable.ed)
             setButtonStyleBlack(buttonFloor4)
             setButtonStyleGray(buttonFloor2)

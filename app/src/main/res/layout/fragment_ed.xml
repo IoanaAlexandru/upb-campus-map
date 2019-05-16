@@ -31,10 +31,18 @@
             <Button android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_weight="1.0"
-                    android:id="@+id/ed_floor1"
-                    android:text="@string/_1"
+                    android:id="@+id/ed_floor0"
+                    android:text="@string/p"
                     android:background="@color/colorGray"
                     android:textColor="@color/colorBlack"
+                    android:textSize="18sp"/>
+            <Button android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1.0"
+                    android:id="@+id/ed_floor1"
+                    android:background="@color/colorWhite"
+                    android:text="@string/_1"
+                    android:textColor="@color/colorDarkGray"
                     android:textSize="18sp"/>
             <Button android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
@@ -50,14 +58,6 @@
                     android:id="@+id/ed_floor3"
                     android:background="@color/colorWhite"
                     android:text="@string/_3"
-                    android:textColor="@color/colorDarkGray"
-                    android:textSize="18sp"/>
-            <Button android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1.0"
-                    android:id="@+id/ed_floor4"
-                    android:background="@color/colorWhite"
-                    android:text="@string/_4"
                     android:textColor="@color/colorDarkGray"
                     android:textSize="18sp"/>
         </LinearLayout>
