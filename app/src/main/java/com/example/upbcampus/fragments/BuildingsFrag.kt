@@ -8,8 +8,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.upbcampus.buildings.CustomAdapter
-import com.example.upbcampus.buildings.DataModel
+import com.example.upbcampus.utilities.CustomAdapter
+import com.example.upbcampus.utilities.DataModel
 import com.example.upbcampus.R
 import java.util.*
 
@@ -53,7 +53,7 @@ class BuildingsFrag : Fragment() {
         }
 
         /* Set the adapter and the recyclerView */
-        adapter = CustomAdapter(data, context)
+        adapter = CustomAdapter(data!!, context!!)
         recyclerView!!.adapter = adapter
 
         return rootView

@@ -1,23 +1,29 @@
-package com.example.upbcampus.buildings
+package com.example.upbcampus.fragments
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+
 import com.example.upbcampus.R
 import uk.co.senab.photoview.PhotoViewAttacher
 
-class EdActivity : AppCompatActivity() {
+class EdFrag : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ed)
-
-        val buttonFloor1 = findViewById(R.id.ed_floor1) as? Button
-        val buttonFloor2 = findViewById(R.id.ed_floor2) as? Button
-        val buttonFloor3 = findViewById(R.id.ed_floor3) as? Button
-        val buttonFloor4 = findViewById(R.id.ed_floor4) as? Button
-        val image = findViewById(R.id.edImage) as? ImageView
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val rootView = inflater.inflate(R.layout.fragment_ed, container, false)
+        val buttonFloor1 = rootView.findViewById(R.id.ed_floor1) as? Button
+        val buttonFloor2 = rootView.findViewById(R.id.ed_floor2) as? Button
+        val buttonFloor3 = rootView.findViewById(R.id.ed_floor3) as? Button
+        val buttonFloor4 = rootView.findViewById(R.id.ed_floor4) as? Button
+        val image = rootView.findViewById(R.id.edImage) as? ImageView
         image?.setImageResource(R.drawable.ed_parter)
 
         val photoView = PhotoViewAttacher(image)
@@ -58,15 +64,18 @@ class EdActivity : AppCompatActivity() {
             setButtonStyleGray(buttonFloor3)
             setButtonStyleGray(buttonFloor1)
         }
+        return rootView
     }
 
-    fun setButtonStyleGray(button: Button?) {
+    private fun setButtonStyleGray(button: Button?) {
         button?.setBackgroundColor(resources.getColor(R.color.colorWhite))
         button?.setTextColor(resources.getColor(R.color.colorDarkGray))
     }
 
-    fun setButtonStyleBlack(button: Button?) {
+    private fun setButtonStyleBlack(button: Button?) {
         button?.setBackgroundColor(resources.getColor(R.color.colorGray))
         button?.setTextColor(resources.getColor(R.color.colorBlack))
     }
+
+
 }
