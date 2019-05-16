@@ -2,6 +2,7 @@ package com.example.upbcampus.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,7 +30,7 @@ class EdFrag : Fragment() {
         photoView.update()
 
         buttonFloor1?.setOnClickListener {
-            println("You clicked on floor1")
+            Log.d("EcFrag","You clicked on floor1")
             image?.setImageResource(R.drawable.ed_parter)
             setButtonStyleBlack(buttonFloor1)
             setButtonStyleGray(buttonFloor2)
@@ -38,7 +39,7 @@ class EdFrag : Fragment() {
         }
 
         buttonFloor2?.setOnClickListener {
-            println("You clicked on floor2")
+            Log.d("EcFrag","You clicked on floor2")
             image?.setImageResource(R.drawable.ed_etaj)
             setButtonStyleBlack(buttonFloor2)
             setButtonStyleGray(buttonFloor1)
@@ -47,7 +48,7 @@ class EdFrag : Fragment() {
         }
 
         buttonFloor3?.setOnClickListener {
-            println("You clicked on floor2")
+            Log.d("EcFrag","You clicked on floor2")
             image?.setImageResource(R.drawable.ed_etaj2)
             setButtonStyleBlack(buttonFloor3)
             setButtonStyleGray(buttonFloor1)
@@ -56,7 +57,7 @@ class EdFrag : Fragment() {
         }
 
         buttonFloor4?.setOnClickListener {
-            println("You clicked on floor2")
+            Log.d("EcFrag","You clicked on floor2")
             image?.setImageResource(R.drawable.ed)
             setButtonStyleBlack(buttonFloor4)
             setButtonStyleGray(buttonFloor2)

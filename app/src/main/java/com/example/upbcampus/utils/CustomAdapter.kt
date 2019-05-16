@@ -58,8 +58,8 @@ class CustomAdapter(private val dataSet: ArrayList<DataModel>, internal var cont
         imageView.setImageResource(dataSet[listPosition].image)
 
         imageView.setOnClickListener {
-            println("You clicked on image.Redirecting...")
-            println(dataSet[listPosition].name)
+            Log.d("CustomAdapter","You clicked on image.Redirecting...")
+            Log.d("CustomAdapter", dataSet[listPosition].name)
             when (dataSet[listPosition].name) {
                 "EC" -> {
                     loadFragByTag(FRAG_EC)

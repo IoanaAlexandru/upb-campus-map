@@ -32,15 +32,15 @@ class BuildingsFrag : Fragment() {
 
         /* RecyclerView is used along with CustomAdapter */
         recyclerView = rootView.findViewById<View>(R.id.my_recycler_view) as RecyclerView
-        recyclerView!!.setHasFixedSize(true)
+        recyclerView?.setHasFixedSize(true)
 
         layoutManager = LinearLayoutManager(this.requireContext())
-        recyclerView!!.layoutManager = LinearLayoutManager(
+        recyclerView?.layoutManager = LinearLayoutManager(
             context,
             LinearLayoutManager.HORIZONTAL,
             false
         )
-        recyclerView!!.itemAnimator = DefaultItemAnimator()
+        recyclerView?.itemAnimator = DefaultItemAnimator()
 
         /* Fill the ArrayList used in CustomAdapter */
         data = ArrayList()
@@ -56,7 +56,7 @@ class BuildingsFrag : Fragment() {
 
         /* Set the adapter and the recyclerView */
         adapter = CustomAdapter(data!!, context!!)
-        recyclerView!!.adapter = adapter
+        recyclerView?.adapter = adapter
 
         return rootView
     }

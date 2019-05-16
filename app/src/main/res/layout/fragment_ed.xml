@@ -1,32 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/ec_container"
         tools:context=".fragments.EdFrag">
-
-    <!-- Dummy item to prevent SearchView from receiving focus -->
-    <LinearLayout
-            android:id="@+id/focus_dummy"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:layout_width="0px"
-            android:layout_height="0px"
-            android:orientation="horizontal"/>
-
-    <SearchView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/ed_search"
-            android:queryHint="Search..."
-            android:iconifiedByDefault="false"
-            android:layout_margin="10dp"
-            android:elevation="5dp"
-            android:background="@drawable/bg_round">
-    </SearchView>
 
     <ImageButton
             android:layout_width="fill_parent"
