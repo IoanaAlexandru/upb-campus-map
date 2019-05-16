@@ -2,6 +2,7 @@ package com.example.upbcampus.mapmodel
 import com.example.upbcampus.utils.App
 import com.example.upbcampus.R
 import com.example.upbcampus.utils.NodeDeserializer
+import com.example.upbcampus.utils.Pathfinder
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 

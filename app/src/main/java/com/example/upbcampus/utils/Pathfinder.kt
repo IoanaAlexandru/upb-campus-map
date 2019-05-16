@@ -1,4 +1,7 @@
-package com.example.upbcampus.mapmodel
+package com.example.upbcampus.utils
+
+import com.example.upbcampus.mapmodel.Node
+import com.example.upbcampus.mapmodel.UPBMap
 
 const val COST : Int = 1
 
