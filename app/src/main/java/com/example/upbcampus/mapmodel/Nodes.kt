@@ -1,6 +1,6 @@
 package com.example.upbcampus.mapmodel
 
-enum class Building { EC, ED }
+enum class Building { EC, ED, UNKNOWN }
 
 abstract class Node(
     val id: Int, val name: String, val floor: Int, val building: Building
@@ -20,15 +20,15 @@ class Entrance(
 
 abstract class Vertical(
     id: Int, name: String, floor: Int, building: Building,
-    val up: Int?, val down: Int?
+    neighbor: Int, val up: Int?, val down: Int?
 ) :
     Node(id, name, floor, building)
 
 class Stairs(
     id: Int, name: String, floor: Int, building: Building,
-    up: Int?, down: Int?
+    neighbor: Int, up: Int?, down: Int?
 ) :
-    Vertical(id, name, floor, building, up, down) {
+    Vertical(id, name, floor, building, neighbor, up, down) {
     override fun getNeighbours(): List<Node> {
         return mutableListOf(up, down).mapNotNull { UPBMap.nodes[it] }
     }
@@ -36,9 +36,9 @@ class Stairs(
 
 class Elevator(
     id: Int, name: String, floor: Int, building: Building,
-    up: Int?, down: Int?
+    neighbor: Int, up: Int?, down: Int?
 ) :
-    Vertical(id, name, floor, building, up, down) {
+    Vertical(id, name, floor, building, neighbor, up, down) {
     override fun getNeighbours(): List<Node> {
         return mutableListOf(up, down).mapNotNull { UPBMap.nodes[it] }
     }

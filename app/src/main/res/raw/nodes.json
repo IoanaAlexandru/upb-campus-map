@@ -1,0 +1,130 @@
+[
+  {
+    "type": "Entrance",
+    "id": 1,
+    "name": "intrare EC",
+    "floor": 0,
+    "building": "EC",
+    "to": 2
+  },
+  {
+    "type": "Intersection",
+    "id": 2,
+    "name": "",
+    "floor": 0,
+    "building": "EC",
+    "east": 1,
+    "north": 3,
+    "west": 4
+  },
+  {
+    "type": "Stairs",
+    "id": 3,
+    "name": "scările de lângă intrare",
+    "floor": 0,
+    "building": "EC",
+    "neighbor": 2
+  },
+  {
+    "type": "Intersection",
+    "id": 4,
+    "name": "",
+    "floor": 0,
+    "building": "EC",
+    "south": 5,
+    "east": 2,
+    "west": 6
+  },
+  {
+    "type": "LectureHall",
+    "id": 5,
+    "name": "EC105",
+    "floor": 0,
+    "building": "EC",
+    "neighbor": 4
+  },
+  {
+    "type": "Intersection",
+    "id": 6,
+    "name": "",
+    "floor": 0,
+    "building": "EC",
+    "west": 7
+  },
+  {
+    "type": "Stairs",
+    "id": 7,
+    "name": "scările de lângă aparate",
+    "floor": 0,
+    "building": "EC",
+    "neighbor": 6
+  },
+  {
+    "type": "Intersection",
+    "id": 8,
+    "name": "",
+    "floor": 0,
+    "building": "EC",
+    "east": 9,
+    "west": 10,
+    "north": 11
+  },
+  {
+    "type": "LectureHall",
+    "id": 9,
+    "name": "EC004",
+    "floor": 0,
+    "building": "EC",
+    "neighbor": 8
+  },
+  {
+    "type": "Classroom",
+    "id": 10,
+    "name": "EC001",
+    "floor": 0,
+    "building": "EC",
+    "neighbor": 8
+  },
+  {
+    "type": "Intersection",
+    "id": 11,
+    "name": "",
+    "floor": 0,
+    "building": "EC",
+    "west": 12,
+    "north": 13
+  },
+  {
+    "type": "Store",
+    "id": 12,
+    "name": "Xerox",
+    "floor": 0,
+    "building": "EC",
+    "neighbor": 11
+  },
+  {
+    "type": "Intersection",
+    "id": 13,
+    "name": "",
+    "floor": 0,
+    "building": "EC",
+    "west": 14,
+    "east": 15
+  },
+  {
+    "type": "Classroom",
+    "id": 14,
+    "name": "EC003",
+    "floor": 0,
+    "building": "EC",
+    "neighbor": 13
+  },
+  {
+    "type": "Classroom",
+    "id": 15,
+    "name": "EC002",
+    "floor": 0,
+    "building": "EC",
+    "neighbor": 13
+  }
+]
