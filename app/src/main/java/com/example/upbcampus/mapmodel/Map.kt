@@ -13,7 +13,7 @@ object UPBMap {
     // Nodes mapped by ID
     val nodesById : Map<Int, Node>
     // Nodes mapped by location (floor & building)
-    val nodesByLocation : Map<Pair<Int, Building>, Node>
+    val roomsByLocation = mutableMapOf<Pair<Int, Building>, MutableList<Room>>()
 
     init {
         // parse data file to initialise nodesById
@@ -26,8 +26,17 @@ object UPBMap {
         val nodeList = gson.fromJson<List<Node?>>(nodeJson, nodeListType)
         if (nodeList.contains(null))
             Log.e(this::class.java.simpleName, "Invalid JSON field detected")
+
         nodesById = nodeList.filterNotNull().map { node -> node.id to node }.toMap()
-        nodesByLocation = nodeList.filterNotNull().map { node -> Pair(node.floor, node.building) to node }.toMap()
+        nodeList.filterNotNull().forEach {node ->
+            if (node is Room) {
+                val key = Pair(node.floor, node.building)
+                if (roomsByLocation[key] == null)
+                    roomsByLocation[key] = mutableListOf(node)
+                else
+                    roomsByLocation[key]?.add(node)
+            }
+        }
     }
 
     // TODO(Mark) pai nu fac eu?
