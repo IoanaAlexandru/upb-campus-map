@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/ec_container"
-        tools:context=".buildings.EdActivity">
+        tools:context=".fragments.EdFrag">
 
     <!-- Dummy item to prevent SearchView from receiving focus -->
     <LinearLayout
@@ -37,7 +37,8 @@
 
     <LinearLayout android:orientation="horizontal"
                   android:layout_width="52dp" android:layout_height="wrap_content"
-                  android:layout_margin="16dp"
+                  android:layout_marginBottom="76dp"
+                  android:layout_marginEnd="16dp"
                   android:layout_alignParentBottom="true"
                   android:layout_alignParentEnd="true"
                   android:id="@+id/ec_floor_tabs">
