@@ -2,13 +2,13 @@ package com.example.upbcampus.mapmodel
 
 const val COST : Int = 1
 
-class Pathfinder (val source: Node, val target: Node) {
+class Pathfinder (private val source: Node, private val target: Node) {
     private var mapSize = UPBMap.nodes.size
     private var dist = IntArray(mapSize) { Int.MAX_VALUE }
     private var sptSet = BooleanArray(mapSize)
     private var parent = IntArray(mapSize) { -1 }
 
-    fun minDistance() : Int {
+    private fun minDistance() : Int {
         var min = Int.MAX_VALUE
         var minIndex = 0
 
@@ -22,38 +22,37 @@ class Pathfinder (val source: Node, val target: Node) {
         return minIndex
     }
 
-    fun dijkstra() {
+    private fun dijkstra() {
         dist[source.id] = 0
 
         for (count in 0 until mapSize - 1) {
             val u = minDistance()
             sptSet[u] = true
 
-            val uNeighbours = UPBMap.nodes[u]?.getNeighbours()
-            for (v in uNeighbours!!) {
-                if (!sptSet[v.id] &&
+            UPBMap.nodes[u]?.getNeighbours()?.forEach { neighbour ->
+                if (!sptSet[neighbour.id] &&
                     dist[u] != Int.MAX_VALUE &&
-                    dist[u] + COST < dist[v.id])
+                    dist[u] + COST < dist[neighbour.id])
                 {
-                    dist[v.id] = dist[u] + COST
-                    parent[v.id] = u
+                    dist[neighbour.id] = dist[u] + COST
+                    parent[neighbour.id] = u
                 }
 
                 //TODO: decide about this
-                //if (v.id == target.id)
+                //if (neighbour.id == target.id)
                 //   return
             }
         }
     }
 
-    fun getPath() : MutableList<Node?> {
+    fun getPath() : MutableList<Node> {
         dijkstra()
 
-        val path = mutableListOf<Node?>()
-        var node : Node? = target
+        val path = mutableListOf<Node>()
+        var node = target
         while (node != source) {
             path.add(0, node)
-            node = UPBMap.nodes[parent[node!!.id]]
+            node = UPBMap.nodes[parent[node.id]] ?: return path
         }
 
         return path
