@@ -14,14 +14,14 @@ import com.example.upbcampus.utils.DataModel
 import java.util.*
 
 class BuildingsFrag : Fragment() {
-    var nameArray = arrayOf("EC", "ED")
-    var drawableArray = arrayOf(R.drawable.ec, R.drawable.ed)
-    var id_ = arrayOf(0, 1)
+    private val nameArray = arrayOf("EC", "ED")
+    private val drawableArray = arrayOf(R.drawable.ec, R.drawable.ed)
+    private val id = arrayOf(0, 1)
 
-    private var adapter: RecyclerView.Adapter<*>? = null
-    private var layoutManager: RecyclerView.LayoutManager? = null
-    private var recyclerView: RecyclerView? = null
-    private var data: ArrayList<DataModel>? = null
+    private lateinit var adapter: RecyclerView.Adapter<*>
+    private lateinit var layoutManager: RecyclerView.LayoutManager
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var data: ArrayList<DataModel>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,31 +32,31 @@ class BuildingsFrag : Fragment() {
 
         /* RecyclerView is used along with CustomAdapter */
         recyclerView = rootView.findViewById<View>(R.id.my_recycler_view) as RecyclerView
-        recyclerView!!.setHasFixedSize(true)
+        recyclerView.setHasFixedSize(true)
 
         layoutManager = LinearLayoutManager(this.requireContext())
-        recyclerView!!.layoutManager = LinearLayoutManager(
+        recyclerView.layoutManager = LinearLayoutManager(
             context,
             LinearLayoutManager.HORIZONTAL,
             false
         )
-        recyclerView!!.itemAnimator = DefaultItemAnimator()
+        recyclerView.itemAnimator = DefaultItemAnimator()
 
         /* Fill the ArrayList used in CustomAdapter */
         data = ArrayList()
         for (i in 0 until nameArray.size) {
-            data!!.add(
+            data.add(
                 DataModel(
                     nameArray[i],
-                    id_[i],
+                    id[i],
                     drawableArray[i]
                 )
             )
         }
 
         /* Set the adapter and the recyclerView */
-        adapter = CustomAdapter(data!!, context!!)
-        recyclerView!!.adapter = adapter
+        adapter = CustomAdapter(data, context!!)
+        recyclerView.adapter = adapter
 
         return rootView
     }
