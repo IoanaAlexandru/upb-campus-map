@@ -1,4 +1,4 @@
-package com.example.upbcampus.utilities
+package com.example.upbcampus.utils
 
 import android.content.Context
 import android.support.v4.app.Fragment

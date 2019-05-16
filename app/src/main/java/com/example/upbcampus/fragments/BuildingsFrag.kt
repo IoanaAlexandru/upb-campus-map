@@ -8,8 +8,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.upbcampus.utilities.CustomAdapter
-import com.example.upbcampus.utilities.DataModel
+import com.example.upbcampus.utils.CustomAdapter
+import com.example.upbcampus.utils.DataModel
 import com.example.upbcampus.R
 import java.util.*
 
