@@ -16,11 +16,12 @@ import com.example.upbcampus.mapmodel.UPBMap
 import uk.co.senab.photoview.PhotoViewAttacher
 import uk.co.senab.photoview.PhotoViewAttacher.OnPhotoTapListener
 
-
 class EcFrag : Fragment() {
 
     var xThreshold = 0.03
     var yThreshold = 0.04
+    var currentFloor = 0
+    var currentBuilding = "EC"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -72,12 +73,16 @@ class EcFrag : Fragment() {
             image?.setImageResource(R.drawable.ec_parter)
             setButtonStyleBlack(buttonFloor1)
             setButtonStyleGray(buttonFloor2)
+            currentFloor = 0
+            currentBuilding = "EC"
         }
 
         buttonFloor2?.setOnClickListener {
             image?.setImageResource(R.drawable.ec_etaj)
             setButtonStyleBlack(buttonFloor2)
             setButtonStyleGray(buttonFloor1)
+            currentFloor = 1
+            currentBuilding = "EC"
         }
 
         return rootView
@@ -95,15 +100,18 @@ class EcFrag : Fragment() {
 
     private fun getRoomInfo(x: Float, y: Float): Room? {
 
-        UPBMap.roomsByLocation.forEach { (_, nodes) ->
-            nodes.forEach { node ->
-                // Check left | right | up | down borders for current room
-                if ((x >= node.coords.first - xThreshold) &&
-                    (x <= node.coords.first + xThreshold) &&
-                    (y >= node.coords.second - yThreshold) &&
-                    (y <= node.coords.second + yThreshold)
-                ) {
-                    return node
+        UPBMap.roomsByLocation.forEach { (location, nodes) ->
+            // Get the entries for current floor and building
+            if (location.first == currentFloor && location.second.name == currentBuilding) {
+                nodes.forEach { node ->
+                    // Check left | right | up | down borders for current room
+                    if ((x >= node.coords.first - xThreshold) &&
+                        (x <= node.coords.first + xThreshold) &&
+                        (y >= node.coords.second - yThreshold) &&
+                        (y <= node.coords.second + yThreshold)
+                    ) {
+                        return node
+                    }
                 }
             }
         }
