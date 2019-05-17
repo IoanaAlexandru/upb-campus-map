@@ -60,6 +60,14 @@
                     android:text="@string/_3"
                     android:textColor="@color/colorDarkGray"
                     android:textSize="18sp"/>
+            <Button android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1.0"
+                    android:id="@+id/ed_floor4"
+                    android:background="@color/colorWhite"
+                    android:text="@string/_4"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="18sp"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

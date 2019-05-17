@@ -2,7 +2,6 @@ package com.example.upbcampus.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +10,7 @@ import android.widget.ImageView
 
 import com.example.upbcampus.R
 import uk.co.senab.photoview.PhotoViewAttacher
+
 
 class EdFrag : Fragment() {
     override fun onCreateView(
@@ -23,6 +23,7 @@ class EdFrag : Fragment() {
         val buttonFloor2 = rootView.findViewById(R.id.ed_floor1) as? Button
         val buttonFloor3 = rootView.findViewById(R.id.ed_floor2) as? Button
         val buttonFloor4 = rootView.findViewById(R.id.ed_floor3) as? Button
+        val buttonFloor5 = rootView.findViewById(R.id.ed_floor4) as? Button
         val image = rootView.findViewById(R.id.edImage) as? ImageView
         image?.setImageResource(R.drawable.ed_parter)
 
@@ -34,13 +35,15 @@ class EdFrag : Fragment() {
             setButtonStyleBlack(buttonFloor1)
             setButtonStyleGray(buttonFloor2)
             setButtonStyleGray(buttonFloor3)
+            setButtonStyleGray(buttonFloor5)
             setButtonStyleGray(buttonFloor4)
         }
 
         buttonFloor2?.setOnClickListener {
-            image?.setImageResource(R.drawable.ed_etaj)
+            image?.setImageResource(R.drawable.ed_etaj1)
             setButtonStyleBlack(buttonFloor2)
             setButtonStyleGray(buttonFloor1)
+            setButtonStyleGray(buttonFloor5)
             setButtonStyleGray(buttonFloor3)
             setButtonStyleGray(buttonFloor4)
         }
@@ -49,14 +52,25 @@ class EdFrag : Fragment() {
             image?.setImageResource(R.drawable.ed_etaj2)
             setButtonStyleBlack(buttonFloor3)
             setButtonStyleGray(buttonFloor1)
+            setButtonStyleGray(buttonFloor5)
             setButtonStyleGray(buttonFloor2)
             setButtonStyleGray(buttonFloor4)
         }
 
         buttonFloor4?.setOnClickListener {
-            image?.setImageResource(R.drawable.ed)
+            image?.setImageResource(R.drawable.ed_etaj3)
             setButtonStyleBlack(buttonFloor4)
             setButtonStyleGray(buttonFloor2)
+            setButtonStyleGray(buttonFloor5)
+            setButtonStyleGray(buttonFloor3)
+            setButtonStyleGray(buttonFloor1)
+        }
+
+        buttonFloor5?.setOnClickListener {
+            image?.setImageResource(R.drawable.ed_etaj4)
+            setButtonStyleBlack(buttonFloor5)
+            setButtonStyleGray(buttonFloor2)
+            setButtonStyleGray(buttonFloor4)
             setButtonStyleGray(buttonFloor3)
             setButtonStyleGray(buttonFloor1)
         }

@@ -2,9 +2,11 @@ package com.example.upbcampus.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.example.upbcampus.R
 import java.util.*
@@ -22,6 +24,8 @@ class HistoryFrag : Fragment() {
     private val queries = HashMap<String, Query>()
     private val queriesByLastSearched = TreeSet<Query>(compareBy { si -> si.lastSearched })
     private val queriesByFrequency = TreeSet<Query>(compareBy { si -> si.frequency })
+    private var listAdapter : ArrayAdapter<String>? = null
+    private lateinit var historyList : MutableList<String>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,10 +36,15 @@ class HistoryFrag : Fragment() {
         val listView = rootView.findViewById<View>(R.id.lv) as? ListView
 
         // TODO fill list
-//        var historyList = queries.keys.toList()
-//        var sItems = arrayOf("one", "two", "three")
-//        var listAdapter = ArrayAdapter(activity, android.R.layout.simple_list_item_1, sItems)
-//        listView?.adapter = listAdapter
+        historyList = queries.keys.toMutableList()
+        listAdapter = ArrayAdapter(context, android.R.layout.simple_list_item_1, historyList)
+        listView?.adapter = listAdapter
+        listView?.transcriptMode = ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL
+        listView?.isStackFromBottom = true
+
+        listAdapter?.notifyDataSetChanged()
+
+
         return rootView
     }
 
@@ -49,6 +58,13 @@ class HistoryFrag : Fragment() {
             queries[query] = Query(query, date)
         }
 
-        // TODO notify adapter
+        historyList.add(query)
+
+        //TODO: 1.resolve duplicates bug from historyList
+        //TODO: 2.resolve crash when text is added in search bar BEFORE the creation of HistoryFrag()
+        //TODO: 3.resolve bug of listview being erased AFTER leaving HistoryFrag()
+        Log.d(this::class.java.simpleName, "[search] size of list is ${historyList.size}")
+
+        listAdapter?.notifyDataSetChanged()
     }
 }

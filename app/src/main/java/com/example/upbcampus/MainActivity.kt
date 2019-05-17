@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        loadFragByTag(FRAG_BUILIDINGS);
+        loadFragByTag(FRAG_BUILIDINGS)
         searchView = findViewById(R.id.sv_location)
         searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(s: String): Boolean {

@@ -110,4 +110,3 @@ class EcFrag : Fragment() {
         return null
     }
 }
-
