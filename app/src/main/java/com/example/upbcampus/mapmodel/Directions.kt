@@ -1,22 +1,66 @@
 package com.example.upbcampus.mapmodel
 
+import com.example.upbcampus.utils.*
+
 abstract class Direction(
     val src: Node,
-    val dst: Node,
-    val message: String
+    val dst: Node
 )
 
-class LocationDirection(loc: Node, message: String) :
-    Direction(loc, loc, message)
+class LocationDirection(loc: Node, private val info: Heading) :
+    Direction(loc, loc)
+{
+    override fun toString(): String {
+        var message = ""
 
-class StairsDirection(src: Stairs, dst: Stairs, message: String) :
-    Direction(src, dst, message)
+        message += if (info == Heading.UNKNOWN)
+            "$start_from " + src.name + "."
+        else
+            when(info) {
+                Heading.FORWARD -> "$room $front_side."
+                Heading.RIGHT -> "$room $is_on_side $right_side."
+                Heading.LEFT -> "$room $is_on_side $left_side."
+                else -> "$reach_dest."
+            }
 
-class ElevatorDirection(src: Elevator, dst: Elevator, message: String) :
-    Direction(src, dst, message)
+        return message
+    }
+}
 
-class IntersectionDirection(src: Node, dst: Node, message: String) :
-    Direction(src, dst, message)
+class EntranceDirection(private val loc: Node)
+    : Direction (loc, loc) {
+    override fun toString(): String {
+        return enter_building + " " + loc.name + "."
+    }
+}
 
-class WalkDirection(src: Node, dst: Node, message: String) :
-    Direction(src, dst, message)
+class VerticalDirection(src: Node, dst: Node) :
+    Direction(src, dst)
+{
+    private fun getElevation() : Int {
+        return dst.floor - src.floor
+    }
+
+    override fun toString() : String {
+        val x = getElevation()
+        var message = ""
+
+        message += if (x > 0) climb else descend
+
+        message += "" + Math.abs(x) + " " + floors
+        message += " ($to_floor " + dst.floor + ")"
+
+        return message
+    }
+}
+
+class IntersectionDirection(src: Node, dst: Node, val info: Heading) :
+    Direction(src, dst)
+{
+    override fun toString() : String {
+        return ""
+    }
+}
+
+class WalkDirection(src: Node, dst: Node) :
+    Direction(src, dst)
