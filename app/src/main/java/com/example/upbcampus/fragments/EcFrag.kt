@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import android.widget.*
 
 import com.example.upbcampus.R
-import com.example.upbcampus.mapmodel.Building
 import com.example.upbcampus.mapmodel.Room
 import com.example.upbcampus.mapmodel.UPBMap
 import uk.co.senab.photoview.PhotoViewAttacher
@@ -42,15 +41,8 @@ class EcFrag : Fragment() {
 
             @SuppressLint("InflateParams")
             override fun onPhotoTap(arg0: View, x: Float, y: Float) {
-                println("New click...\n".plus(x).plus(" ").plus(y))
+                Log.d(this::class.java.simpleName, "New click at $x $y")
 
-                UPBMap.roomsByLocation.forEach { (location, nodes) ->
-                    print("${location.first}, ${location.second} : ")
-                    nodes.forEach { node ->
-                        print("${node.name} ")
-                    }
-                    println()
-                }
                 val room = getRoomInfo(x, y)
 
                 if (room != null) {
@@ -58,14 +50,19 @@ class EcFrag : Fragment() {
                     val view = layoutInflater.inflate(R.layout.custompopup, null)
                     val list = view.findViewById(R.id.list_room) as? ListView
 
-                    val info = arrayOf("Name: ".plus(room.name), "Building: ".plus(room.building), "Floor: ".plus(room.floor), "Type: ".plus(room::class.java.simpleName))
+                    val info = arrayOf(
+                        "Name: ${room.name}",
+                        "Building: ${room.building}",
+                        "Floor: ${room.floor}",
+                        "Type: ${room::class.java.simpleName}"
+                    )
                     val listAdapter = ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, info)
 
                     list?.adapter = listAdapter
                     listAdapter.notifyDataSetChanged()
 
-                    val diagol = altertDialog.setView(view)
-                    diagol.create()
+                    val dialog = altertDialog.setView(view)
+                    dialog.create()
                         .show()
                 }
             }
@@ -100,7 +97,6 @@ class EcFrag : Fragment() {
 
         UPBMap.roomsByLocation.forEach { (_, nodes) ->
             nodes.forEach { node ->
-                println(node.name.plus(" ").plus(node.coords.first).plus(" ").plus(node.coords.second))
                 // Check left | right | up | down borders for current room
                 if ((x >= node.coords.first - xThreshold) &&
                     (x <= node.coords.first + xThreshold) &&
