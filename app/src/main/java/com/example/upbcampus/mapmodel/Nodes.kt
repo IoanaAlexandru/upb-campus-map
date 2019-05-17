@@ -1,6 +1,11 @@
 package com.example.upbcampus.mapmodel
 
+import com.example.upbcampus.R
+import com.example.upbcampus.utils.*
+
 enum class Building { EC, ED, UNKNOWN }
+
+enum class Heading { FORWARD, BACK, RIGHT, LEFT, UNKNOWN}
 
 abstract class Node(
     val id: Int, val name: String, val floor: Int, val building: Building
@@ -51,6 +56,38 @@ class Intersection(
     Node(id, name, floor, building) {
     override fun getNeighbours(): List<Node> {
         return mutableListOf(north, east, south, west).mapNotNull { UPBMap.nodesById[it] }
+    }
+
+    fun getHeading(src: Int, dst: Int) : Heading {
+        when(src == north) {
+            dst == north -> return Heading.RIGHT
+            dst == east -> return Heading.LEFT
+            dst == south -> return Heading.FORWARD
+            dst == west -> return Heading.RIGHT
+        }
+
+        when(src == east) {
+            dst == north -> return Heading.RIGHT
+            dst == east -> return Heading.RIGHT
+            dst == south -> return Heading.LEFT
+            dst == west -> return Heading.FORWARD
+        }
+
+        when(src == south) {
+            dst == north -> return Heading.FORWARD
+            dst == east -> return Heading.RIGHT
+            dst == south -> return Heading.RIGHT
+            dst == west -> return Heading.LEFT
+        }
+
+        when(src == west) {
+            dst == north -> return Heading.LEFT
+            dst == east -> return Heading.FORWARD
+            dst == south -> return Heading.RIGHT
+            dst == west -> return Heading.RIGHT
+        }
+
+        return Heading.UNKNOWN
     }
 }
 

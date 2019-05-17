@@ -3,6 +3,7 @@ package com.example.upbcampus.mapmodel
 import android.util.Log
 import com.example.upbcampus.R
 import com.example.upbcampus.utils.App
+import com.example.upbcampus.utils.Navigator
 import com.example.upbcampus.utils.NodeDeserializer
 import com.example.upbcampus.utils.Pathfinder
 import com.google.gson.GsonBuilder
@@ -40,10 +41,10 @@ object UPBMap {
         }
     }
 
-    // TODO(Mark) pai nu fac eu?
     fun navigate(src: Node, dst: Node): List<Direction> {
         val pathfinder = Pathfinder(src, dst)
+        val navigator = Navigator(pathfinder.getPath())
 
-        return emptyList<Direction>()
+        return navigator.getDirections()
     }
 }
