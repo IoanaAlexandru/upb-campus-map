@@ -9,6 +9,8 @@ import android.widget.SearchView
 import com.example.upbcampus.fragments.BuildingsFrag
 import com.example.upbcampus.fragments.FavouritesFrag
 import com.example.upbcampus.fragments.HistoryFrag
+import com.example.upbcampus.mapmodel.UPBMap
+import com.example.upbcampus.mapmodel.UPBUser
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -48,7 +50,8 @@ class MainActivity : AppCompatActivity() {
         searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(s: String): Boolean {
                 val location = searchView?.query.toString()
-                (getFragByTag(FRAG_HISTORY) as HistoryFrag).search(location, Calendar.getInstance().time)
+                UPBUser.search(location, Calendar.getInstance().time)
+                (getFragByTag(FRAG_HISTORY) as HistoryFrag).notify()
                 return false
             }
 
@@ -89,5 +92,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         return frag
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        UPBUser.saveData()
     }
 }
