@@ -89,6 +89,7 @@ class MainActivity : AppCompatActivity() {
 
         val alertDialog = AlertDialog.Builder(ctx)
         val view = layoutInflater?.inflate(R.layout.custompopup, null)
+        val dialog = alertDialog.setView(view).create()
         val text = view?.findViewById(R.id.room_info) as TextView
 
         var saved = UPBUser.isInFavourites(room.name)
@@ -119,6 +120,7 @@ class MainActivity : AppCompatActivity() {
         navigateButton.setOnClickListener {
             UPBUser.dst = room
             loadFragByTag(FRAG_NAVIGATE)
+            dialog.dismiss()
         }
 
         text.text = "Name: ${room.name}\n\n" +
@@ -127,9 +129,8 @@ class MainActivity : AppCompatActivity() {
                 "Type: ${room::class.java.simpleName}"
 
         /* Display dialog */
-        val dialog = alertDialog.setView(view)
-        dialog.create()
-            .show()
+        alertDialog.setView(view)
+        dialog.show()
     }
 
     private fun updateFavouritesButton(favouritesButton: Button, saved: Boolean) {
