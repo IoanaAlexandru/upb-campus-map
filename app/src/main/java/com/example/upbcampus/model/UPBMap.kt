@@ -17,6 +17,8 @@ object UPBMap {
     val nodesById: Map<Int, Node>
     // Nodes mapped by location (floor & building)
     val roomsByLocation = mutableMapOf<Pair<Int, Building>, MutableList<Room>>()
+    // Rooms mapped by their name
+    val roomsByName: Map<String, Room>
 
     init {
         // parse data file to initialise nodesById
@@ -40,6 +42,9 @@ object UPBMap {
                     roomsByLocation[key]?.add(node)
             }
         }
+
+        roomsByName =
+            nodeList.filter { node -> node is Room }.filterNotNull().map { room -> room.name to room as Room }.toMap()
     }
 
     fun navigate(src: Node, dst: Node): List<Direction> {
