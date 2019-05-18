@@ -109,36 +109,32 @@ fun DisplayPopUp(ctx: Context?, layoutInflater: LayoutInflater?, x: Float, y: Fl
     if (room != null) {
         val alertDialog = AlertDialog.Builder(ctx)
         val view = layoutInflater?.inflate(R.layout.custompopup, null)
-        val list = view?.findViewById(R.id.list_room) as? ListView
-        val image = view?.findViewById(R.id.popup_image) as? ImageButton
+        val text = view?.findViewById(R.id.room_info) as? TextView
+       // val image = view?.findViewById(R.id.popup_fav) as? ImageButton
 
         /* Set image icon */
-        image?.setImageResource(R.drawable.baseline_favorite_24dp)
+       // image?.setImageResource(R.drawable.baseline_favorite_24dp)
 
         /* Add room to favourite on click */
-        image?.setOnClickListener {
+       // image?.setOnClickListener {
            // AddToFavouriteList(room.name, FavouritesFrag.getList())
-        }
+      //  }
 
-        /* Extract Room info to display in pop up */
-        val info = arrayOf(
-            "Name: ${room.name}",
-            "Building: ${room.building}",
-            "Floor: ${room.floor}",
-            "Type: ${room::class.java.simpleName}"
-        )
 
-        /* Set adapter */
-        val listAdapter = ArrayAdapter<String>(ctx, android.R.layout.simple_list_item_1, info)
-
-        list?.adapter = listAdapter
-        listAdapter.notifyDataSetChanged()
+        text?.text = "Name: ${room.name}\n\n" +
+                "Building: ${room.building}\n\n" +
+                "Floor: ${room.floor}\n\n" +
+                "Type: ${room::class.java.simpleName}\n\n"
 
         /* Display dialog */
         val dialog = alertDialog.setView(view)
         dialog.create()
             .show()
     }
+}
+
+fun PopupInfoByFrag() {
+
 }
 
 fun AddToFavouriteList(name: String, fav_list: MutableList<String>) {

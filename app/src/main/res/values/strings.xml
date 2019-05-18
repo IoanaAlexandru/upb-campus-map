@@ -21,5 +21,12 @@
     <string name="zoom_out">-</string>
     <string name="add_to_favourites">Add to favourites</string>
     <string name="favourite_button">favourite_button</string>
+    <string name="directions">Directions</string>
+    <string name="start">Start</string>
+    <string name="delete">Delete</string>
+    <string name="save">Save</string>
+    <string name="remove_button">remove_button</string>
+    <string name="start_button">start_button</string>
+    <string name="directions_button">directions_button</string>
 
 </resources>

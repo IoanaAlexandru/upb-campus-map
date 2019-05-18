@@ -1,38 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
+                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/colorWhite">
 
-    <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/list_room"/>
-
     <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/list_room"
-            android:id="@+id/favourite_text"
-            android:text="@string/add_to_favourites"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:fontFamily="sans-serif-thin"
+            android:id="@+id/room_info"
+            android:textColor="@color/colorBlack"
+            android:fontFamily="sans-serif"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"/>
-    <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/list_room"
-            android:id="@+id/popup_image"
-            android:layout_alignParentEnd="true"
-            android:background="@color/colorWhite"
-            android:contentDescription="@string/favourite_button"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="8dp"
+            android:textSize="18sp"
+            android:textAlignment="textStart"/>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/room_info"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="66dp"
+                android:layout_marginBottom="16dp"
+                android:baselineAligned="false">
+            <!-- Favourites Button -->
+            <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/save"
+                    android:drawableTop="@drawable/baseline_favorite_24dp"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="10dp"
+                    android:id="@+id/save_button"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"/>
+            <!-- Current Location Button -->
+            <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/start"
+                    android:layout_marginEnd="10dp"
+                    android:drawableTop="@drawable/baseline_my_location_24"
+                    android:textSize="16sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"/>
+            <!-- Get Directions Button -->
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/directions"
+                    android:layout_marginEnd="10dp"
+                    android:drawableTop="@drawable/baseline_directions_24"
+                    android:textSize="16sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"/>
+        </LinearLayout>
 
 </RelativeLayout>
