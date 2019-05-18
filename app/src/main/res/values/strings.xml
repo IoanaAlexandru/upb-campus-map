@@ -19,5 +19,7 @@
     <string name="_4">4</string>
     <string name="zoom_in">+</string>
     <string name="zoom_out">-</string>
+    <string name="add_to_favourites">Add to favourites</string>
+    <string name="favourite_button">favourite_button</string>
 
 </resources>

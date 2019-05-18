@@ -35,7 +35,6 @@ class HistoryFrag : Fragment() {
         val rootView = inflater.inflate(R.layout.history, container, false)
         val listView = rootView.findViewById<View>(R.id.lv) as? ListView
 
-        // TODO fill list
         historyList = queries.keys.toMutableList()
         listAdapter = ArrayAdapter(context, android.R.layout.simple_list_item_1, historyList)
         listView?.adapter = listAdapter
