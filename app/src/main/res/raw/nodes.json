@@ -20,10 +20,11 @@
   {
     "type": "Stairs",
     "id": 3,
-    "name": "scările de lângă intrare",
+    "name": "scările de lângă intrare (parter)",
     "floor": 0,
     "building": "EC",
-    "neighbor": 2
+    "neighbor": 2,
+    "up": 16
   },
   {
     "type": "Intersection",
@@ -59,7 +60,8 @@
     "name": "scările de lângă aparate",
     "floor": 0,
     "building": "EC",
-    "neighbor": 6
+    "neighbor": 6,
+    "up": 22
   },
   {
     "type": "Intersection",
@@ -120,7 +122,7 @@
     "east": 15
   },
   {
-    "type": "Classroom",
+    "type": "LectureHall",
     "id": 14,
     "name": "EC003",
     "floor": 0,
@@ -138,5 +140,100 @@
     "x": 0.78,
     "y": 0.77,
     "neighbor": 13
+  },
+  {
+    "type": "Stairs",
+    "id": 16,
+    "name": "scările de lângă intrare (et. 1)",
+    "floor": 1,
+    "building": "EC",
+    "neighbor": 17,
+    "down": 3
+  },
+  {
+    "type": "Intersection",
+    "id": 17,
+    "name": "",
+    "floor": 1,
+    "building": "EC",
+    "east": 16,
+    "north": 18
+  },
+  {
+    "type": "Intersection",
+    "id": 18,
+    "name": "",
+    "floor": 1,
+    "building": "EC",
+    "east": 22,
+    "north": 19
+  },
+  {
+    "type": "Intersection",
+    "id": 19,
+    "name": "",
+    "floor": 1,
+    "building": "EC",
+    "east": 21,
+    "south": 18,
+    "west": 20
+  },
+  {
+    "type": "LectureHall",
+    "id": 20,
+    "name": "EC106",
+    "floor": 1,
+    "building": "EC",
+    "x": 0.15,
+    "y": 0.24,
+    "neighbor": 19
+  },
+  {
+    "type": "Stairs",
+    "id": 21,
+    "name": "scările de lângă aparate (et. 1)",
+    "floor": 1,
+    "building": "EC",
+    "neighbor": 19,
+    "down": 7
+  },
+  {
+    "type": "Intersection",
+    "id": 22,
+    "name": "",
+    "floor": 1,
+    "building": "EC",
+    "east": 23,
+    "south": 24,
+    "west": 18
+  },
+  {
+    "type": "Intersection",
+    "id": 23,
+    "name": "",
+    "floor": 1,
+    "building": "EC",
+    "south": 26,
+    "west": 22
+  },
+  {
+    "type": "Classroom",
+    "id": 24,
+    "name": "EC101",
+    "floor": 1,
+    "building": "EC",
+    "x": 0.58,
+    "y": 0.79,
+    "neighbor": 22
+  },
+  {
+    "type": "Classroom",
+    "id": 25,
+    "name": "EC102",
+    "floor": 1,
+    "building": "EC",
+    "x": 0.77,
+    "y": 0.78,
+    "neighbor": 23
   }
 ]
