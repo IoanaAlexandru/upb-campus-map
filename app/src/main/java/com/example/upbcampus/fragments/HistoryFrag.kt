@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.example.upbcampus.R
+import com.example.upbcampus.model.UPBMap
 import com.example.upbcampus.model.UPBUser
+import com.example.upbcampus.utils.App
 
 class HistoryFrag : Fragment() {
-    private var listAdapter : ArrayAdapter<String>? = null
+    private var listAdapter: ArrayAdapter<String>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +27,11 @@ class HistoryFrag : Fragment() {
         listView?.adapter = listAdapter
         listView?.transcriptMode = ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL
         listView?.isStackFromBottom = true
+
+        listView?.setOnItemClickListener { _, _, position, _ ->
+            val selection = listView.getItemAtPosition(position) as String
+            App.mActivity?.displayRoomInfo(UPBMap.roomsByName[selection.toUpperCase()], context, inflater)
+        }
 
         listAdapter?.notifyDataSetChanged()
 
