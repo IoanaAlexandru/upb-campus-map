@@ -69,7 +69,7 @@ class NavigateFrag : Fragment() {
     private fun getDirectionImage(direction: String): Int {
         when (direction) {
             descend -> {
-                return R.drawable.ic_downstairs            }
+                return R.drawable.ic_stairs_mirrored            }
             climb -> {
                 return R.drawable.ic_stairs
             }
