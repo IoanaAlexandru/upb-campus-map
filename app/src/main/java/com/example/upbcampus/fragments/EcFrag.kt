@@ -3,6 +3,7 @@ package com.example.upbcampus.fragments
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,6 +37,7 @@ class EcFrag : Fragment() {
 
             @SuppressLint("InflateParams")
             override fun onPhotoTap(arg0: View, x: Float, y: Float) {
+                Log.d("EC","coords:  ${x} ${y}")
                 displayPopUp(context, layoutInflater, x, y)
             }
         }

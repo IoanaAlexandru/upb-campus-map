@@ -21,7 +21,7 @@ import com.example.upbcampus.model.UPBUser
 import com.example.upbcampus.utils.App
 import java.util.*
 import android.widget.Toast
-
+import com.example.upbcampus.fragments.NavigateFrag
 
 
 class MainActivity : AppCompatActivity() {
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     val FRAG_FAVOURITES = "favourites_frag"
     val FRAG_HISTORY = "history_frag"
     val FRAG_BUILIDINGS = "buildings_frag"
-
+    val FRAG_NAVIGATE = "navigate_frag"
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -118,9 +118,7 @@ class MainActivity : AppCompatActivity() {
         val navigateButton = view.findViewById(R.id.navigate_button) as Button
         navigateButton.setOnClickListener {
             UPBUser.dst = room
-            val directions = UPBMap.navigate(UPBUser.src, room)
-            // TODO display directions
-            directions.forEach { Log.d(this::class.java.simpleName, it.toString()) }
+            loadFragByTag(FRAG_NAVIGATE)
         }
 
         text.text = "Name: ${room.name}\n\n" +
@@ -162,6 +160,7 @@ class MainActivity : AppCompatActivity() {
                 FRAG_FAVOURITES -> FavouritesFrag()
                 FRAG_HISTORY -> HistoryFrag()
                 FRAG_BUILIDINGS -> BuildingsFrag()
+                FRAG_NAVIGATE -> NavigateFrag()
                 else -> Fragment()  // shouldn't happen
             }
 
