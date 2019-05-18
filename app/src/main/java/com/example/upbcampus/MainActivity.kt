@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity() {
                 val location = searchView?.query.toString()
                 UPBUser.search(location, Calendar.getInstance().time)
                 (getFragByTag(FRAG_HISTORY) as HistoryFrag).notify()
+                displayRoomInfo(UPBMap.roomsByName[location.toUpperCase()], App.mActivity, layoutInflater)
                 return false
             }
 
@@ -70,6 +71,16 @@ class MainActivity : AppCompatActivity() {
         })
         val navigation: BottomNavigationView = findViewById(R.id.navigation)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+        UPBMap.roomsByLocation.forEach { (location, nodes) ->
+            print("${location.first}, ${location.second} : ")
+            nodes.forEach { node ->
+                print("${node.name} ${node::class.java.simpleName}")
+            }
+            println()
+        }
+        val dirs = UPBMap.navigate(UPBMap.nodesById[1]!!, UPBMap.nodesById[12]!!)
+        dirs.forEach { println(it) }
     }
 
     fun displayRoomInfo(
