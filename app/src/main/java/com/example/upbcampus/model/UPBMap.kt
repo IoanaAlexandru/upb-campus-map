@@ -1,4 +1,4 @@
-package com.example.upbcampus.mapmodel
+package com.example.upbcampus.model
 
 import android.util.Log
 import com.example.upbcampus.R
@@ -8,6 +8,7 @@ import com.example.upbcampus.utils.NodeDeserializer
 import com.example.upbcampus.utils.Pathfinder
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
+import kotlin.collections.Map
 
 
 // Singleton with lazy initialisation

@@ -9,8 +9,8 @@ import android.widget.SearchView
 import com.example.upbcampus.fragments.BuildingsFrag
 import com.example.upbcampus.fragments.FavouritesFrag
 import com.example.upbcampus.fragments.HistoryFrag
-import com.example.upbcampus.mapmodel.UPBMap
-import com.example.upbcampus.mapmodel.UPBUser
+import com.example.upbcampus.model.UPBMap
+import com.example.upbcampus.model.UPBUser
 import java.util.*
 
 class MainActivity : AppCompatActivity() {

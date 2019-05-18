@@ -1,6 +1,6 @@
 package com.example.upbcampus.utils
 
-import com.example.upbcampus.mapmodel.*
+import com.example.upbcampus.model.*
 
 class Navigator (
     val path: List<Node>

@@ -8,9 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import com.example.upbcampus.R
-import com.example.upbcampus.fragments.FavouritesFrag
-import com.example.upbcampus.mapmodel.Room
-import com.example.upbcampus.mapmodel.UPBMap
+import com.example.upbcampus.model.Room
+import com.example.upbcampus.model.UPBMap
 
 var FLOORS = 0
 var CURRENT_FLOOR = 0

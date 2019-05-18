@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.example.upbcampus.R
-import com.example.upbcampus.mapmodel.UPBUser
+import com.example.upbcampus.model.UPBUser
 
 class HistoryFrag : Fragment() {
     private var listAdapter : ArrayAdapter<String>? = null

@@ -1,6 +1,6 @@
 package com.example.upbcampus.utils
 
-import com.example.upbcampus.mapmodel.*
+import com.example.upbcampus.model.*
 import com.google.gson.JsonDeserializationContext
 import com.google.gson.JsonDeserializer
 import com.google.gson.JsonElement

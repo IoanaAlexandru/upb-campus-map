@@ -1,7 +1,4 @@
-package com.example.upbcampus.mapmodel
-
-import com.example.upbcampus.R
-import com.example.upbcampus.utils.*
+package com.example.upbcampus.model
 
 enum class Building { EC, ED, UNKNOWN }
 

@@ -1,4 +1,4 @@
-package com.example.upbcampus.mapmodel
+package com.example.upbcampus.model
 
 import com.example.upbcampus.utils.*
 
