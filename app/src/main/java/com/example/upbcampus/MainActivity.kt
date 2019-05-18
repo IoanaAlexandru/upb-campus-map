@@ -20,6 +20,9 @@ import com.example.upbcampus.model.UPBMap
 import com.example.upbcampus.model.UPBUser
 import com.example.upbcampus.utils.App
 import java.util.*
+import android.widget.Toast
+
+
 
 class MainActivity : AppCompatActivity() {
     private var searchView: SearchView? = null
@@ -88,7 +91,11 @@ class MainActivity : AppCompatActivity() {
         ctx: Context?,
         layoutInflater: LayoutInflater?
     ) {
-        room ?: return
+        if (room == null) {
+            val toast = Toast.makeText(this, "Search term not found", Toast.LENGTH_LONG)
+            toast.show()
+            return
+        }
 
         val alertDialog = AlertDialog.Builder(ctx)
         val view = layoutInflater?.inflate(R.layout.custompopup, null)
