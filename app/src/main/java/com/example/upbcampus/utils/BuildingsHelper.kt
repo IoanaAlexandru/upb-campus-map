@@ -1,12 +1,12 @@
 package com.example.upbcampus.utils
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageView
 import com.example.upbcampus.R
 import com.example.upbcampus.model.Room
 import com.example.upbcampus.model.UPBMap
@@ -101,35 +101,11 @@ fun changeButtonsImages(
     }
 }
 
-fun DisplayPopUp(ctx: Context?, layoutInflater: LayoutInflater?, x: Float, y: Float) {
+fun displayPopUp(ctx: Context?, layoutInflater: LayoutInflater?, x: Float, y: Float) {
     Log.d("BuildingsHelper", "New click at $x $y")
     val room = getRoomInfo(x, y, CURRENT_FLOOR, CURRENT_BUILDING, XTHRESHOLD, YTHRESHOLD)
 
-    if (room != null) {
-        val alertDialog = AlertDialog.Builder(ctx)
-        val view = layoutInflater?.inflate(R.layout.custompopup, null)
-        val text = view?.findViewById(R.id.room_info) as? TextView
-       // val image = view?.findViewById(R.id.popup_fav) as? ImageButton
-
-        /* Set image icon */
-       // image?.setImageResource(R.drawable.baseline_favorite_24dp)
-
-        /* Add room to favourite on click */
-       // image?.setOnClickListener {
-           // AddToFavouriteList(room.name, FavouritesFrag.getList())
-      //  }
-
-
-        text?.text = "Name: ${room.name}\n\n" +
-                "Building: ${room.building}\n\n" +
-                "Floor: ${room.floor}\n\n" +
-                "Type: ${room::class.java.simpleName}\n\n"
-
-        /* Display dialog */
-        val dialog = alertDialog.setView(view)
-        dialog.create()
-            .show()
-    }
+    App.mActivity?.displayRoomInfo(room, ctx, layoutInflater)
 }
 
 fun PopupInfoByFrag() {

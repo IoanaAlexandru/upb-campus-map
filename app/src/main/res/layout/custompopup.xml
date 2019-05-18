@@ -29,7 +29,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/save"
-                    android:drawableTop="@drawable/baseline_favorite_24dp"
+                    android:drawableTop="@drawable/ic_baseline_favorite_border_24px"
                     android:textSize="16sp"
                     android:id="@+id/save_button"
                     android:textAlignment="center"

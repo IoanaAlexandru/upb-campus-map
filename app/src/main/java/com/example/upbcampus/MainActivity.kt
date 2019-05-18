@@ -1,16 +1,24 @@
 package com.example.upbcampus
 
+import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.LayoutInflater
+import android.widget.Button
 import android.widget.SearchView
+import android.widget.TextView
 import com.example.upbcampus.fragments.BuildingsFrag
 import com.example.upbcampus.fragments.FavouritesFrag
 import com.example.upbcampus.fragments.HistoryFrag
+import com.example.upbcampus.model.Room
 import com.example.upbcampus.model.UPBMap
 import com.example.upbcampus.model.UPBUser
+import com.example.upbcampus.utils.App
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -43,6 +51,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        App.mActivity = this
         setContentView(R.layout.activity_main)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         loadFragByTag(FRAG_BUILIDINGS)
@@ -61,6 +70,56 @@ class MainActivity : AppCompatActivity() {
         })
         val navigation: BottomNavigationView = findViewById(R.id.navigation)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+    }
+
+    fun displayRoomInfo(
+        room: Room?,
+        ctx: Context?,
+        layoutInflater: LayoutInflater?
+    ) {
+        room ?: return
+
+        val alertDialog = AlertDialog.Builder(ctx)
+        val view = layoutInflater?.inflate(R.layout.custompopup, null)
+        val text = view?.findViewById(R.id.room_info) as TextView
+
+        var saved = UPBUser.isInFavourites(room.name)
+        val favouritesButton = view.findViewById(R.id.save_button) as Button
+        updateFavouritesButton(favouritesButton, saved)
+        favouritesButton.setOnClickListener {
+            if (saved) {
+                UPBUser.removeFromFavourites(room.name)
+                (getFragByTag(FRAG_FAVOURITES) as FavouritesFrag).notify()
+            } else {
+                UPBUser.addToFavourites(room.name)
+                (getFragByTag(FRAG_FAVOURITES) as FavouritesFrag).notify()
+            }
+            saved = !saved
+            updateFavouritesButton(favouritesButton, saved)
+
+            alertDialog.setView(view)
+        }
+
+        text.text = "Name: ${room.name}\n\n" +
+                "Building: ${room.building}\n\n" +
+                "Floor: ${room.floor}\n\n" +
+                "Type: ${room::class.java.simpleName}"
+
+        /* Display dialog */
+        val dialog = alertDialog.setView(view)
+        dialog.create()
+            .show()
+    }
+
+    private fun updateFavouritesButton(favouritesButton: Button, saved: Boolean) {
+        favouritesButton.setText(if (saved) R.string.unsave else R.string.save)
+        val icon = if (saved) R.drawable.baseline_favorite_24dp else R.drawable.ic_baseline_favorite_border_24px
+        favouritesButton.setCompoundDrawablesWithIntrinsicBounds(
+            null,
+            ContextCompat.getDrawable(this, icon),
+            null,
+            null
+        )
     }
 
     private fun loadFragByTag(tag: String) {

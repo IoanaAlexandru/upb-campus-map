@@ -36,7 +36,7 @@ class EcFrag : Fragment() {
 
             @SuppressLint("InflateParams")
             override fun onPhotoTap(arg0: View, x: Float, y: Float) {
-                DisplayPopUp(context, layoutInflater, x, y)
+                displayPopUp(context, layoutInflater, x, y)
             }
         }
 

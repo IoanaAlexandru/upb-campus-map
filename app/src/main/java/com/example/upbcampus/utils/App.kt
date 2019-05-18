@@ -2,6 +2,7 @@ package com.example.upbcampus.utils
 
 import android.app.Application
 import android.content.res.Resources
+import com.example.upbcampus.MainActivity
 import java.io.File
 
 class App : Application() {
@@ -19,5 +20,6 @@ class App : Application() {
             private set
         var mFilesDir: File? = null
             private set
+        var mActivity: MainActivity? = null
     }
 }
