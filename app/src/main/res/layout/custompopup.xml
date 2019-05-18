@@ -16,50 +16,53 @@
             android:layout_marginBottom="8dp"
             android:textSize="18sp"
             android:textAlignment="textStart"/>
-        <LinearLayout
-                android:layout_width="match_parent"
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/room_info"
+            android:baselineAligned="false"
+            style="?android:attr/buttonBarStyle">
+        <!-- Favourites Button -->
+        <Button
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@+id/room_info"
-                android:baselineAligned="false"
-                style="?android:attr/buttonBarStyle">
-            <!-- Favourites Button -->
-            <Button
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/save"
-                    android:drawableTop="@drawable/ic_baseline_favorite_border_24px"
-                    android:textSize="16sp"
-                    android:id="@+id/save_button"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorPrimary"
-                    style="?android:attr/buttonBarButtonStyle"/>
-            <!-- Current Location Button -->
-            <Button
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/start"
-                    android:drawableTop="@drawable/baseline_my_location_24"
-                    android:textSize="16sp"
-                    android:id="@+id/start_button"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorPrimary"
-                    style="?android:attr/buttonBarButtonStyle"/>
-            <!-- Get Directions Button -->
-            <Button
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/directions"
-                    android:layout_marginEnd="10dp"
-                    android:drawableTop="@drawable/baseline_directions_24"
-                    android:textSize="16sp"
-                    android:id="@+id/navigate_button"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorPrimary"
-                    style="?android:attr/buttonBarButtonStyle"/>
-        </LinearLayout>
+                android:text="@string/save"
+                android:drawableTop="@drawable/ic_baseline_favorite_border_24px"
+                android:textSize="16sp"
+                android:id="@+id/save_button"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:drawableTint="@color/colorDarkGray"
+                style="?android:attr/buttonBarButtonStyle"/>
+        <!-- Current Location Button -->
+        <Button
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/start"
+                android:drawableTop="@drawable/baseline_my_location_24"
+                android:textSize="16sp"
+                android:id="@+id/start_button"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:drawableTint="@color/colorDarkGray"
+                style="?android:attr/buttonBarButtonStyle"/>
+        <!-- Get Directions Button -->
+        <Button
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/directions"
+                android:layout_marginEnd="10dp"
+                android:drawableTop="@drawable/baseline_directions_24"
+                android:textSize="16sp"
+                android:id="@+id/navigate_button"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:drawableTint="@color/colorDarkGray"
+                style="?android:attr/buttonBarButtonStyle"/>
+    </LinearLayout>
 
 </RelativeLayout>
