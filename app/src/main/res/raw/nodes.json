@@ -156,8 +156,8 @@
     "name": "",
     "floor": 1,
     "building": "EC",
-    "east": 16,
-    "north": 18
+    "north": 16,
+    "west": 18
   },
   {
     "type": "Intersection",
@@ -165,8 +165,8 @@
     "name": "",
     "floor": 1,
     "building": "EC",
-    "east": 22,
-    "north": 19
+    "north": 22,
+    "west": 19
   },
   {
     "type": "Intersection",
@@ -174,9 +174,9 @@
     "name": "",
     "floor": 1,
     "building": "EC",
-    "east": 21,
-    "south": 18,
-    "west": 20
+    "north": 21,
+    "east": 18,
+    "south": 20
   },
   {
     "type": "LectureHall",
@@ -203,9 +203,9 @@
     "name": "",
     "floor": 1,
     "building": "EC",
-    "east": 23,
-    "south": 24,
-    "west": 18
+    "north": 23,
+    "east": 24,
+    "south": 18
   },
   {
     "type": "Intersection",
@@ -213,8 +213,8 @@
     "name": "",
     "floor": 1,
     "building": "EC",
-    "south": 26,
-    "west": 22
+    "east": 25,
+    "south": 22
   },
   {
     "type": "Classroom",
