@@ -27,6 +27,9 @@ object UPBUser {
     val historyList: MutableList<String>
     val favouritesList: MutableList<String>
 
+    var src: Node? = null
+    var dst: Node? = null
+
     init {
         val gson = Gson()
 

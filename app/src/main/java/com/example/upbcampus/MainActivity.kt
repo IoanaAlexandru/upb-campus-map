@@ -74,16 +74,6 @@ class MainActivity : AppCompatActivity() {
         })
         val navigation: BottomNavigationView = findViewById(R.id.navigation)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-
-        UPBMap.roomsByLocation.forEach { (location, nodes) ->
-            print("${location.first}, ${location.second} : ")
-            nodes.forEach { node ->
-                print("${node.name} ${node::class.java.simpleName}")
-            }
-            println()
-        }
-        val dirs = UPBMap.navigate(UPBMap.nodesById[1]!!, UPBMap.nodesById[12]!!)
-        dirs.forEach { println(it) }
     }
 
     fun displayRoomInfo(
@@ -116,6 +106,21 @@ class MainActivity : AppCompatActivity() {
             updateFavouritesButton(favouritesButton, saved)
 
             alertDialog.setView(view)
+        }
+
+        val startButton = view.findViewById(R.id.start_button) as Button
+        startButton.setOnClickListener {
+            UPBUser.src = room
+            val toast = Toast.makeText(this, "${room.name} set as source", Toast.LENGTH_LONG)
+            toast.show()
+        }
+
+        val navigateButton = view.findViewById(R.id.navigate_button) as Button
+        navigateButton.setOnClickListener {
+            UPBUser.dst = room
+            val directions = UPBMap.navigate(UPBUser.src, room)
+            // TODO display directions
+            directions.forEach { Log.d(this::class.java.simpleName, it.toString()) }
         }
 
         text.text = "Name: ${room.name}\n\n" +

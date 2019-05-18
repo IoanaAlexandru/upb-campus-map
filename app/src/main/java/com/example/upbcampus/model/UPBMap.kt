@@ -8,6 +8,7 @@ import com.example.upbcampus.utils.NodeDeserializer
 import com.example.upbcampus.utils.Pathfinder
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
+import java.lang.Exception
 import kotlin.collections.Map
 
 
@@ -19,6 +20,8 @@ object UPBMap {
     val roomsByLocation = mutableMapOf<Pair<Int, Building>, MutableList<Room>>()
     // Rooms mapped by their name
     val roomsByName: Map<String, Room>
+
+    private val defaultSrc: Node?
 
     init {
         // parse data file to initialise nodesById
@@ -45,10 +48,13 @@ object UPBMap {
 
         roomsByName =
             nodeList.filter { node -> node is Room }.filterNotNull().map { room -> room.name to room as Room }.toMap()
+
+        defaultSrc = nodesById[1]
     }
 
-    fun navigate(src: Node, dst: Node): List<Direction> {
-        val pathfinder = Pathfinder(src, dst)
+    fun navigate(src: Node?, dst: Node): List<Direction> {
+        defaultSrc ?: throw Exception("No source node found")
+        val pathfinder = Pathfinder(src ?: defaultSrc, dst)
         val navigator = Navigator(pathfinder.getPath())
 
         return navigator.getDirections()
