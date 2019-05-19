@@ -72,19 +72,22 @@ class StairsDirection(src: Node, dst: Node) :
 }
 
 class IntersectionDirection(src: Node, dst: Node, val info: Heading) :
-    Direction(src, dst)
-{
-    override fun toString() : String {
-        return when(info) {
-            Heading.FORWARD -> "${getStr(R.string.go_forward)}."
-            Heading.LEFT -> "${getStr(R.string.go_left)}."
-            Heading.RIGHT -> "${getStr(R.string.go_right)}."
-            Heading.BACK -> "${getStr(R.string.go_back)}."
-            else -> "Taxi du-mă unde vrei."
-        }
+    Direction(src, dst) {
+    override fun toString(): String = when (info) {
+        Heading.FORWARD -> "${getStr(R.string.go_forward)}."
+        Heading.LEFT -> "${getStr(R.string.go_left)}."
+        Heading.RIGHT -> "${getStr(R.string.go_right)}."
+        Heading.BACK -> "${getStr(R.string.go_back)}."
+        else -> "Taxi du-mă unde vrei."
     }
 
-    override fun getImage(): Int = 0
+    override fun getImage(): Int = when (info) {
+        Heading.FORWARD -> R.drawable.baseline_arrow_upward_24
+        Heading.LEFT -> R.drawable.baseline_arrow_back_24
+        Heading.RIGHT -> R.drawable.baseline_arrow_forward_24
+        Heading.BACK -> R.drawable.baseline_arrow_downward_24
+        else -> 0
+    }
 }
 
 class WalkDirection(src: Node, dst: Node) :
