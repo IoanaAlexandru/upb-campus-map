@@ -1,5 +1,8 @@
 package com.example.upbcampus.model
 
+import com.example.upbcampus.R
+import com.example.upbcampus.utils.App
+
 enum class Building { EC, ED, UNKNOWN }
 
 enum class Heading { FORWARD, BACK, RIGHT, LEFT, UNKNOWN }
@@ -96,46 +99,83 @@ abstract class Room(
     override fun getNeighbours(): List<Node> {
         return mutableListOf<Int?>(neighbor).mapNotNull { UPBMap.nodesById[it] }
     }
+
+    protected fun toString(type: Int): String {
+        val res = App.mResources
+        val endl = System.lineSeparator()
+        return "${res?.getString(R.string.name)}: $name$endl$endl" +
+                "${res?.getString(R.string.floor)}: $floor$endl$endl" +
+                "${res?.getString(R.string.building)}: $building$endl$endl" +
+                "${res?.getString(R.string.type)}: ${res?.getString(type)}"
+    }
 }
 
 class LectureHall(
     id: Int, name: String, floor: Int, building: Building,
     neighbor: Int, coords: Pair<Float, Float>
 ) :
-    Room(id, name, floor, building, neighbor, coords)
+    Room(id, name, floor, building, neighbor, coords) {
+    override fun toString(): String {
+        return super.toString(R.string.LectureHall)
+    }
+}
 
 class Laboratory(
     id: Int, name: String, floor: Int, building: Building,
     neighbor: Int, coords: Pair<Float, Float>
 ) :
-    Room(id, name, floor, building, neighbor, coords)
+    Room(id, name, floor, building, neighbor, coords) {
+    override fun toString(): String {
+        return super.toString(R.string.Laboratory)
+    }
+}
 
 class Restroom(
     id: Int, name: String, floor: Int, building: Building,
     neighbor: Int, coords: Pair<Float, Float>
 ) :
-    Room(id, name, floor, building, neighbor, coords)
+    Room(id, name, floor, building, neighbor, coords) {
+    override fun toString(): String {
+        return super.toString(R.string.Restroom)
+    }
+}
 
 class Classroom(
     id: Int, name: String, floor: Int, building: Building,
     neighbor: Int, coords: Pair<Float, Float>
 ) :
-    Room(id, name, floor, building, neighbor, coords)
+    Room(id, name, floor, building, neighbor, coords) {
+    override fun toString(): String {
+        return super.toString(R.string.Classroom)
+    }
+}
 
 class Office(
     id: Int, name: String, floor: Int, building: Building,
     neighbor: Int, coords: Pair<Float, Float>
 ) :
-    Room(id, name, floor, building, neighbor, coords)
+    Room(id, name, floor, building, neighbor, coords) {
+    override fun toString(): String {
+        return super.toString(R.string.Office)
+    }
+}
 
 class Store(
     id: Int, name: String, floor: Int, building: Building,
     neighbor: Int, coords: Pair<Float, Float>
 ) :
-    Room(id, name, floor, building, neighbor, coords)
+    Room(id, name, floor, building, neighbor, coords) {
+    override fun toString(): String {
+        return super.toString(R.string.Store)
+    }
+}
 
 class UnknownRoom(
     id: Int, name: String, floor: Int, building: Building,
     neighbor: Int, coords: Pair<Float, Float>
 ) :
-    Room(id, name, floor, building, neighbor, coords)
+    Room(id, name, floor, building, neighbor, coords) {
+    override fun toString(): String {
+        return super.toString(R.string.UnknownRoom)
+    }
+}

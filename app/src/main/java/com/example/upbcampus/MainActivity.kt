@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         layoutInflater: LayoutInflater?
     ) {
         if (room == null) {
-            val toast = Toast.makeText(this, "Search term not found", Toast.LENGTH_LONG)
+            val toast = Toast.makeText(this, getString(R.string.not_found), Toast.LENGTH_LONG)
             toast.show()
             return
         }
@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity() {
         val startButton = view.findViewById(R.id.start_button) as Button
         startButton.setOnClickListener {
             UPBUser.src = room
-            val toast = Toast.makeText(this, "${room.name} set as source", Toast.LENGTH_LONG)
+            val toast = Toast.makeText(this, "${room.name} ${getString(R.string.set_as_source)}", Toast.LENGTH_LONG)
             toast.show()
         }
 
@@ -123,10 +123,7 @@ class MainActivity : AppCompatActivity() {
             dialog.dismiss()
         }
 
-        text.text = "Name: ${room.name}\n\n" +
-                "Building: ${room.building}\n\n" +
-                "Floor: ${room.floor}\n\n" +
-                "Type: ${room::class.java.simpleName}"
+        text.text = room.toString()
 
         /* Display dialog */
         alertDialog.setView(view)

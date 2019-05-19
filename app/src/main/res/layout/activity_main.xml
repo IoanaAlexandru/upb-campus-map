@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/sv_location"
-        android:queryHint="Search..."
+        android:queryHint="@string/search"
         android:iconifiedByDefault="false"
         android:layout_margin="10dp"
         android:elevation="5dp"

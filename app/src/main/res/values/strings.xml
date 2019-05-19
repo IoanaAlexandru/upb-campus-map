@@ -1,33 +1,46 @@
 <resources>
+    <!--Main UI-->
     <string name="app_name">CampusUPB</string>
-    <string name="title_activity_maps">Map</string>
-    <string name="title_map">Map</string>
-    <string name="title_history">History</string>
-    <string name="title_favourites">Favourites</string>
-    <string name="title_buildings">Buildings</string>
+    <string name="title_activity_maps">Harta</string>
+    <string name="title_map">Harta</string>
+    <string name="title_history">Istoric</string>
+    <string name="title_favourites">Favorite</string>
+    <string name="title_buildings">Clădiri</string>
+    <string name="search">Caută locația…</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="image">Image</string>
-    <string name="building_name">Building Name</string>
-    <string name="p">p</string>
+    <!--Building plans-->
+    <string name="image">Imagine</string>
+    <string name="building_name">Nume clădire</string>
+    <string name="p">P</string>
     <string name="_1">1</string>
     <string name="_2">2</string>
-    <string name="ec">EC</string>
-    <string name="ed">ED</string>
     <string name="_3">3</string>
     <string name="_4">4</string>
+    <string name="ec">EC</string>
+    <string name="ed">ED</string>
     <string name="zoom_in">+</string>
     <string name="zoom_out">-</string>
-    <string name="add_to_favourites">Add to favourites</string>
-    <string name="favourite_button">favourite_button</string>
-    <string name="directions">Navigate</string>
-    <string name="start">Start</string>
-    <string name="delete">Delete</string>
-    <string name="save">Save</string>
-    <string name="unsave">Unsave</string>
-    <string name="remove_button">remove_button</string>
-    <string name="start_button">start_button</string>
-    <string name="directions_button">directions_button</string>
 
+    <!--Room info popup-->
+    <string name="directions">Navigare</string>
+    <string name="start">Start</string>
+    <string name="save">Salvează</string>
+    <string name="unsave">Șterge</string>
+    <string name="name">Nume</string>
+    <string name="building">Clădire</string>
+    <string name="floor">Etaj</string>
+    <string name="type">Tip</string>
+
+    <!--Room types-->
+    <string name="LectureHall">Amfiteatru</string>
+    <string name="Classroom">Sală de seminar</string>
+    <string name="Store">Magazin</string>
+    <string name="Office">Birou</string>
+    <string name="Laboratory">Laborator</string>
+    <string name="Restroom">Toaletă</string>
+    <string name="UnknownRoom">Necunoscut</string>
+
+    <!--Toasts-->
+    <string name="set_as_source">ales ca sursă</string>
+    <string name="not_found">Nu a fost găsit</string>
 </resources>
