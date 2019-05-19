@@ -21,7 +21,7 @@ class LocationDirection(loc: Node, private val info: Heading) :
             "${getStr(R.string.start_from)} ${src.name}."
         else
             when (info) {
-                Heading.FORWARD -> "${getStr(R.string.room)} ${getStr(R.string.front_side)}."
+                Heading.FORWARD -> "${getStr(R.string.room)} este ${getStr(R.string.front_side)}."
                 Heading.RIGHT -> "${getStr(R.string.room)} ${getStr(R.string.is_on_side)} ${getStr(R.string.right_side)}."
                 Heading.LEFT -> "${getStr(R.string.room)} ${getStr(R.string.is_on_side)} ${getStr(R.string.left_side)}."
                 else -> "${getStr(R.string.reach_dest)}."

@@ -21,6 +21,10 @@ class Navigator (
                     val lastNode = dirs.removeAt(dirs.lastIndex)
                     if (lastNode is IntersectionDirection)
                         dirs.add(LocationDirection(node, lastNode.info))
+                    else if (lastNode is WalkDirection) {
+                        dirs.add(lastNode)
+                        dirs.add(LocationDirection(node, Heading.FORWARD))
+                    }
                 }
 
                 is Intersection -> {
@@ -29,8 +33,11 @@ class Navigator (
                         if (dirs[dirs.lastIndex] !is WalkDirection)
                             dirs.add(WalkDirection(path[i-1], path[i+1]))
                     }
-                    else
-                        dirs.add(IntersectionDirection(path[i-1], path[i+1], heading))
+                    else {
+                        if (dirs[dirs.lastIndex] is IntersectionDirection)
+                            dirs.add(WalkDirection(path[i-1], node))
+                        dirs.add(IntersectionDirection(path[i - 1], path[i + 1], heading))
+                    }
                 }
 
                 is Stairs -> {

@@ -15,7 +15,7 @@
     "building": "EC",
     "east": 1,
     "north": 3,
-    "west": 4
+    "west": 6
   },
   {
     "type": "Stairs",
@@ -32,9 +32,9 @@
     "name": "",
     "floor": 0,
     "building": "EC",
-    "south": 5,
-    "east": 2,
-    "west": 6
+    "north": 7,
+    "east": 6,
+    "west": 26
   },
   {
     "type": "LectureHall",
@@ -44,7 +44,7 @@
     "building": "EC",
     "x": 0.14,
     "y": 0.63,
-    "neighbor": 4
+    "neighbor": 6
   },
   {
     "type": "Intersection",
@@ -52,9 +52,10 @@
     "name": "",
     "floor": 0,
     "building": "EC",
-    "west": 7,
+    "west": 4,
     "north": 8,
-    "east": 4
+    "east": 2,
+    "south": 5
   },
   {
     "type": "Stairs",
@@ -62,8 +63,18 @@
     "name": "scările de lângă aparate",
     "floor": 0,
     "building": "EC",
-    "neighbor": 6,
+    "neighbor": 4,
     "up": 21
+  },
+  {
+    "type": "Office",
+    "id": 26,
+    "name": "Cancelarie Profesori",
+    "floor": 0,
+    "building": "EC",
+    "x": 0.31,
+    "y": 0.21,
+    "neighbor": 4
   },
   {
     "type": "Intersection",
@@ -78,8 +89,8 @@
   },
   {
     "type": "Classroom",
-    "id": 9,
-    "name": "EC001",
+    "id": 10,
+    "name": "EC004",
     "floor": 0,
     "building": "EC",
     "x": 0.45,
@@ -88,8 +99,8 @@
   },
   {
     "type": "LectureHall",
-    "id": 10,
-    "name": "EC004",
+    "id": 9,
+    "name": "EC001",
     "floor": 0,
     "building": "EC",
     "x": 0.58,
