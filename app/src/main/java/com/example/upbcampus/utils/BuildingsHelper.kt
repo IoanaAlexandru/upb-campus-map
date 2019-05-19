@@ -103,7 +103,7 @@ fun changeButtonsImages(
 
 fun displayPopUp(ctx: Context?, layoutInflater: LayoutInflater?, x: Float, y: Float) {
     Log.d("BuildingsHelper", "New click at $x $y")
-    val room = getRoomInfo(x, y, CURRENT_FLOOR, CURRENT_BUILDING, XTHRESHOLD, YTHRESHOLD)
+    val room = getRoomInfo(x, y, CURRENT_FLOOR, CURRENT_BUILDING, XTHRESHOLD, YTHRESHOLD) ?: return
 
     App.mActivity?.displayRoomInfo(room, ctx, layoutInflater)
 }
