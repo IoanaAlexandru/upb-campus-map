@@ -17,8 +17,8 @@ const val reach_dest = "Ați ajuns la destinație"
 const val enter_building = "Intrați în"
 
 // Intersections
-const val go_right = "Mergeți la dreapta"
-const val go_left = "Mergeți la stânga"
+const val go_right = "Faceți dreapta"
+const val go_left = "Faceți stânga"
 const val go_forward = "Mergeți înainte"
 const val go_back = "Mergeți înapoi"
 const val towards = "către"

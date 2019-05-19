@@ -1,22 +1,23 @@
 package com.example.upbcampus.utils
 
+import android.util.Log
 import com.example.upbcampus.model.Node
 import com.example.upbcampus.model.UPBMap
 
 const val COST : Int = 1
 
 class Pathfinder (private val source: Node, private val target: Node) {
-    private var mapSize = UPBMap.nodesById.size
+    private var mapSize = UPBMap.nodesById.size + 1
     private var dist = IntArray(mapSize) { Int.MAX_VALUE }
-    private var sptSet = BooleanArray(mapSize)
+    private var sptSet = BooleanArray(mapSize) { false }
     private var parent = IntArray(mapSize) { -1 }
 
     private fun minDistance() : Int {
         var min = Int.MAX_VALUE
-        var minIndex = 0
+        var minIndex = 1
 
-        for (i in 0 until mapSize) {
-            if (!sptSet[i] && dist[i] <= min) {
+        for (i in 1 until mapSize) {
+            if (!sptSet[i] && dist[i] < min) {
                 min = dist[i]
                 minIndex = i
             }
@@ -28,7 +29,7 @@ class Pathfinder (private val source: Node, private val target: Node) {
     private fun dijkstra() {
         dist[source.id] = 0
 
-        for (count in 0 until mapSize - 1) {
+        for (count in 1 until mapSize) {
             val u = minDistance()
             sptSet[u] = true
 
@@ -57,7 +58,9 @@ class Pathfinder (private val source: Node, private val target: Node) {
             path.add(0, node)
             node = UPBMap.nodesById[parent[node.id]] ?: return path
         }
+        path.add(0, source)
 
+        path.forEach{ Log.d("[Pathfinder]", it.toString()) }
         return path
     }
 }

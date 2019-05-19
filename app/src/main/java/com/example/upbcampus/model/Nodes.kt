@@ -25,17 +25,17 @@ class Entrance(
 
 abstract class Vertical(
     id: Int, name: String, floor: Int, building: Building,
-    neighbor: Int, val up: Int?, val down: Int?
+    val neighbour: Int, val up: Int?, val down: Int?
 ) :
     Node(id, name, floor, building)
 
 class Stairs(
     id: Int, name: String, floor: Int, building: Building,
-    neighbor: Int, up: Int?, down: Int?
+    neighbour: Int, up: Int?, down: Int?
 ) :
-    Vertical(id, name, floor, building, neighbor, up, down) {
+    Vertical(id, name, floor, building, neighbour, up, down) {
     override fun getNeighbours(): List<Node> {
-        return mutableListOf(up, down).mapNotNull { UPBMap.nodesById[it] }
+        return mutableListOf(up, down, neighbour).mapNotNull { UPBMap.nodesById[it] }
     }
 }
 
@@ -59,32 +59,31 @@ class Intersection(
     }
 
     fun getHeading(src: Int, dst: Int): Heading {
-        when (src == north) {
-            dst == north -> return Heading.RIGHT
-            dst == east -> return Heading.LEFT
-            dst == south -> return Heading.FORWARD
-            dst == west -> return Heading.RIGHT
-        }
-
-        when (src == east) {
-            dst == north -> return Heading.RIGHT
-            dst == east -> return Heading.RIGHT
-            dst == south -> return Heading.LEFT
-            dst == west -> return Heading.FORWARD
-        }
-
-        when (src == south) {
-            dst == north -> return Heading.FORWARD
-            dst == east -> return Heading.RIGHT
-            dst == south -> return Heading.RIGHT
-            dst == west -> return Heading.LEFT
-        }
-
-        when (src == west) {
-            dst == north -> return Heading.LEFT
-            dst == east -> return Heading.FORWARD
-            dst == south -> return Heading.RIGHT
-            dst == west -> return Heading.RIGHT
+        when (src) {
+            north -> when(dst) {
+                north -> return Heading.BACK
+                east -> return Heading.LEFT
+                south -> return Heading.FORWARD
+                west -> return Heading.RIGHT
+            }
+            east -> when (dst) {
+                north -> return Heading.RIGHT
+                east -> return Heading.BACK
+                south -> return Heading.LEFT
+                west -> return Heading.FORWARD
+            }
+            south -> when (dst) {
+                north -> return Heading.FORWARD
+                east -> return Heading.RIGHT
+                south -> return Heading.BACK
+                west -> return Heading.LEFT
+            }
+            west -> when (dst) {
+                north -> return Heading.LEFT
+                east -> return Heading.FORWARD
+                south -> return Heading.RIGHT
+                west -> return Heading.BACK
+            }
         }
 
         return Heading.UNKNOWN

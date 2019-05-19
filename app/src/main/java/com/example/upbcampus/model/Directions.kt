@@ -7,7 +7,7 @@ abstract class Direction(
     val dst: Node
 )
 
-class LocationDirection(loc: Node, private val info: Heading) :
+class LocationDirection(private val loc: Node, private val info: Heading) :
     Direction(loc, loc)
 {
     override fun toString(): String {
@@ -17,9 +17,9 @@ class LocationDirection(loc: Node, private val info: Heading) :
             "$start_from " + src.name + "."
         else
             when(info) {
-                Heading.FORWARD -> "$room $front_side."
-                Heading.RIGHT -> "$room $is_on_side $right_side."
-                Heading.LEFT -> "$room $is_on_side $left_side."
+                Heading.FORWARD -> "$room ${loc.name} $front_side."
+                Heading.RIGHT -> "$room ${loc.name} $is_on_side $right_side."
+                Heading.LEFT -> "$room ${loc.name} $is_on_side $left_side."
                 else -> "$reach_dest."
             }
 
@@ -58,9 +58,19 @@ class IntersectionDirection(src: Node, dst: Node, val info: Heading) :
     Direction(src, dst)
 {
     override fun toString() : String {
-        return ""
+        return when(info) {
+            Heading.FORWARD -> "$go_forward."
+            Heading.LEFT -> "$go_left."
+            Heading.RIGHT -> "$go_right."
+            Heading.BACK -> "$go_back."
+            else -> "Taxi du-mă unde vrei."
+        }
     }
 }
 
 class WalkDirection(src: Node, dst: Node) :
-    Direction(src, dst)
+    Direction(src, dst) {
+    override fun toString(): String {
+        return "$go_forward."
+    }
+}

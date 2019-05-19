@@ -52,7 +52,9 @@
     "name": "",
     "floor": 0,
     "building": "EC",
-    "west": 7
+    "west": 7,
+    "north": 8,
+    "east": 4
   },
   {
     "type": "Stairs",
@@ -61,7 +63,7 @@
     "floor": 0,
     "building": "EC",
     "neighbor": 6,
-    "up": 22
+    "up": 21
   },
   {
     "type": "Intersection",
@@ -71,12 +73,13 @@
     "building": "EC",
     "east": 9,
     "west": 10,
-    "north": 11
+    "north": 11,
+    "south": 6
   },
   {
-    "type": "LectureHall",
+    "type": "Classroom",
     "id": 9,
-    "name": "EC004",
+    "name": "EC001",
     "floor": 0,
     "building": "EC",
     "x": 0.45,
@@ -84,9 +87,9 @@
     "neighbor": 8
   },
   {
-    "type": "Classroom",
+    "type": "LectureHall",
     "id": 10,
-    "name": "EC001",
+    "name": "EC004",
     "floor": 0,
     "building": "EC",
     "x": 0.58,
@@ -100,7 +103,8 @@
     "floor": 0,
     "building": "EC",
     "west": 12,
-    "north": 13
+    "north": 13,
+    "south": 8
   },
   {
     "type": "Store",
@@ -119,7 +123,8 @@
     "floor": 0,
     "building": "EC",
     "west": 14,
-    "east": 15
+    "east": 15,
+    "south": 11
   },
   {
     "type": "LectureHall",
@@ -166,7 +171,8 @@
     "floor": 1,
     "building": "EC",
     "north": 22,
-    "west": 19
+    "west": 19,
+    "east": 17
   },
   {
     "type": "Intersection",

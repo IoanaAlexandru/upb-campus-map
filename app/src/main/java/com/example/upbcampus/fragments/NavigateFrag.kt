@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import android.widget.ListView
 
 import com.example.upbcampus.R
+import com.example.upbcampus.model.Direction
+import com.example.upbcampus.model.UPBMap
+import com.example.upbcampus.model.UPBUser
 import com.example.upbcampus.utils.*
 import java.util.ArrayList
 
@@ -31,19 +34,7 @@ class NavigateFrag : Fragment() {
         data = ArrayList()
 
         /* Complete ListView with direction texts and its images */
-        directions.add(start_from) // do not delete this line
-
-        // TODO: This are just values for debugging, delete them after fetching data from UPBMap and uncomment the line below
-        // directions = UPBMap.navigate(UPBUser.src, room)
-
-        directions.add(right_side)
-        directions.add(left_side)
-        directions.add(climb)
-        directions.add(descend)
-        directions.add(enter_building)
-        directions.add(front_side)
-
-        directions.add(reach_dest)  // do not delete this line
+        UPBMap.navigate(UPBUser.src, UPBUser.dst ?: return rootView).forEach { directions.add(it.toString()) }
 
         for (i in 0 until directions.size) {
             image.add(getDirectionImage(directions[i]))
@@ -60,7 +51,7 @@ class NavigateFrag : Fragment() {
             )
         }
 
-        var customAdapter = NavigateAdapter(data, context!!)
+        val customAdapter = NavigateAdapter(data, context!!)
         listView!!.adapter = customAdapter
 
         return rootView
