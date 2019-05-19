@@ -63,22 +63,25 @@ abstract class VerticalDirection(src: Node, dst: Node) :
 
 class ElevatorDirection(src: Node, dst: Node) :
     VerticalDirection(src, dst) {
-
-    // TODO toString
     override fun getImage(): Int = R.drawable.ic_elevator  // TODO maybe separate icons for up/down?
 }
 
 class StairsDirection(src: Node, dst: Node) :
     VerticalDirection(src, dst) {
-
-    // TODO toString
     override fun getImage(): Int = if (getElevation() > 0) R.drawable.ic_stairs else R.drawable.ic_stairs_mirrored
 }
 
 class IntersectionDirection(src: Node, dst: Node, val info: Heading) :
-    Direction(src, dst) {
-    override fun toString(): String {
-        return ""
+    Direction(src, dst)
+{
+    override fun toString() : String {
+        return when(info) {
+            Heading.FORWARD -> "${getStr(R.string.go_forward)}."
+            Heading.LEFT -> "${getStr(R.string.go_left)}."
+            Heading.RIGHT -> "${getStr(R.string.go_right)}."
+            Heading.BACK -> "${getStr(R.string.go_back)}."
+            else -> "Taxi du-mă unde vrei."
+        }
     }
 
     override fun getImage(): Int = 0
@@ -87,7 +90,7 @@ class IntersectionDirection(src: Node, dst: Node, val info: Heading) :
 class WalkDirection(src: Node, dst: Node) :
     Direction(src, dst) {
     override fun toString(): String {
-        return ""  // TODO
+        return "${getStr(R.string.go_forward)}."
     }
 
     override fun getImage(): Int = R.drawable.baseline_directions_walk_24

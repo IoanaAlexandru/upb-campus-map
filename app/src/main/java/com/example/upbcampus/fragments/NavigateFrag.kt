@@ -9,6 +9,8 @@ import android.widget.ListView
 
 import com.example.upbcampus.R
 import com.example.upbcampus.model.Direction
+import com.example.upbcampus.model.UPBMap
+import com.example.upbcampus.model.UPBUser
 import com.example.upbcampus.utils.*
 import java.util.ArrayList
 
@@ -32,9 +34,7 @@ class NavigateFrag : Fragment() {
         data = ArrayList()
 
         /* Complete ListView with direction texts and its images */
-
-        // TODO fix navigation
-        // directions = UPBMap.navigate(UPBUser.src, room)
+        UPBMap.navigate(UPBUser.src, UPBUser.dst ?: return rootView).forEach { directions.add(it) }
 
         for (i in 0 until directions.size) {
             image.add(directions[i].getImage())

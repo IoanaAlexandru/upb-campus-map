@@ -10,15 +10,17 @@ class Navigator (
     fun getDirections() : List<Direction> {
         var i = 0
         while (i < path.size) {
-            val node = path[i]
-            when (node) {
+            if (i == 0) {
+                dirs.add(LocationDirection(path[i], Heading.UNKNOWN))
+                i++
+                continue
+            }
+
+            when (val node = path[i]) {
                 is Room -> {
-                    if (i == 0) dirs.add(LocationDirection(node, Heading.UNKNOWN))
-                    else {
-                        val lastNode = dirs.removeAt(dirs.lastIndex)
-                        if (lastNode is IntersectionDirection)
-                            dirs.add(LocationDirection(node, lastNode.info))
-                    }
+                    val lastNode = dirs.removeAt(dirs.lastIndex)
+                    if (lastNode is IntersectionDirection)
+                        dirs.add(LocationDirection(node, lastNode.info))
                 }
 
                 is Intersection -> {
