@@ -8,12 +8,13 @@ import android.view.ViewGroup
 import android.widget.ListView
 
 import com.example.upbcampus.R
+import com.example.upbcampus.model.Direction
 import com.example.upbcampus.utils.*
 import java.util.ArrayList
 
 class NavigateFrag : Fragment() {
 
-    private val directions = ArrayList<String>()
+    private val directions = ArrayList<Direction>()
     private val image = ArrayList<Int>()
     private val id = ArrayList<Int>()
     private lateinit var data: ArrayList<NavDataModel>
@@ -36,14 +37,14 @@ class NavigateFrag : Fragment() {
         // directions = UPBMap.navigate(UPBUser.src, room)
 
         for (i in 0 until directions.size) {
-            image.add(getDirectionImage(directions[i]))
+            image.add(directions[i].getImage())
             id.add(i)
         }
 
         for (i in 0 until id.size) {
             data.add(
                 NavDataModel(
-                    directions[i],
+                    directions[i].toString(),
                     id[i],
                     image[i]
                 )
