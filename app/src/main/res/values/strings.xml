@@ -43,4 +43,27 @@
     <!--Toasts-->
     <string name="set_as_source">ales ca sursă</string>
     <string name="not_found">Nu a fost găsit</string>
+
+    <!--Directions-->
+    <string name="descend">"Coboară"</string>
+    <string name="climb">"Urcă"</string>
+    <string name="floors">"etaje"</string>
+    <string name="to_floor">"până la etajul"</string>
+
+    <!--Locations-->
+    <string name="start_from">"Porniți de la"</string>
+    <string name="room">"Sala"</string>
+    <string name="is_on_side">"este pe partea"</string>
+    <string name="left_side">"stângă"</string>
+    <string name="right_side">"dreaptă"</string>
+    <string name="front_side">"în față"</string> <!--an fata pe avari-->
+    <string name="reach_dest">"Ați ajuns la destinație"</string>
+    <string name="enter_building">"Intrați în"</string>
+
+    <!--Intersections-->
+    <string name="go_right">"Mergeți la dreapta"</string>
+    <string name="go_left">"Mergeți la stânga"</string>
+    <string name="go_forward">"Mergeți înainte"</string>
+    <string name="go_back">"Mergeți înapoi"</string>
+    <string name="towards">"către"</string>
 </resources>
