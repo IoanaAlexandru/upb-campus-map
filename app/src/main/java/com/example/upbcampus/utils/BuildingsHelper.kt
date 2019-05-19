@@ -15,8 +15,8 @@ var FLOORS = 0
 var CURRENT_FLOOR = 0
 var CURRENT_BUILDING = "EC"
 
-var XTHRESHOLD = 0.03
-var YTHRESHOLD = 0.04
+var XTHRESHOLD = 0.05
+var YTHRESHOLD = 0.05
 
 fun getRoomInfo(
     x: Float,

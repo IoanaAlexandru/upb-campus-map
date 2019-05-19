@@ -90,5 +90,5 @@ class WalkDirection(src: Node, dst: Node) :
         return ""  // TODO
     }
 
-    override fun getImage(): Int = 0 // TODO
+    override fun getImage(): Int = R.drawable.baseline_directions_walk_24
 }
