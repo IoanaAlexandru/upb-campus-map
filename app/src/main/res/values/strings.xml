@@ -55,10 +55,10 @@
     <!--Locations-->
     <string name="start_from">"Porniți de la"</string>
     <string name="room">"Sala"</string>
-    <string name="is_on_side">"este pe partea"</string>
-    <string name="left_side">"stângă"</string>
-    <string name="right_side">"dreaptă"</string>
-    <string name="front_side">"în față"</string> <!--an fata pe avari-->
+    <string name="is">"este"</string>
+    <string name="on_left_side">"pe partea stângă"</string>
+    <string name="on_right_side">"pe partea dreaptă"</string>
+    <string name="in_front">"în față"</string> <!--an fata pe avari-->
     <string name="reach_dest">"Ați ajuns la destinație"</string>
     <string name="enter_building">"Intrați în"</string>
 

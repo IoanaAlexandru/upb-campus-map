@@ -21,9 +21,9 @@ class LocationDirection(loc: Node, private val info: Heading) :
             "${getStr(R.string.start_from)} ${src.name}."
         else
             when (info) {
-                Heading.FORWARD -> "${getStr(R.string.room)} este ${getStr(R.string.front_side)}."
-                Heading.RIGHT -> "${getStr(R.string.room)} ${getStr(R.string.is_on_side)} ${getStr(R.string.right_side)}."
-                Heading.LEFT -> "${getStr(R.string.room)} ${getStr(R.string.is_on_side)} ${getStr(R.string.left_side)}."
+                Heading.FORWARD -> "${getStr(R.string.room)} ${getStr(R.string.`is`)} ${getStr(R.string.in_front)}."
+                Heading.RIGHT -> "${getStr(R.string.room)} ${getStr(R.string.`is`)} ${getStr(R.string.on_right_side)}."
+                Heading.LEFT -> "${getStr(R.string.room)} ${getStr(R.string.`is`)} ${getStr(R.string.on_left_side)}."
                 else -> "${getStr(R.string.reach_dest)}."
             }
 
@@ -54,7 +54,7 @@ abstract class VerticalDirection(src: Node, dst: Node) :
 
         message += if (x > 0) getStr(R.string.climb) else getStr(R.string.descend)
 
-        message += "" + Math.abs(x) + " " + getStr(R.string.floors)
+        message += " ${Math.abs(x)} ${getStr(R.string.floors)}"
         message += " (${getStr(R.string.to_floor)} ${dst.floor})"
 
         return message
