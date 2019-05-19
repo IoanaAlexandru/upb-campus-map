@@ -61,8 +61,8 @@
     <string name="enter_building">"Intrați în"</string>
 
     <!--Intersections-->
-    <string name="go_right">"Mergeți la dreapta"</string>
-    <string name="go_left">"Mergeți la stânga"</string>
+    <string name="go_right">"Faceți dreapta"</string>
+    <string name="go_left">"Faceți stânga"</string>
     <string name="go_forward">"Mergeți înainte"</string>
     <string name="go_back">"Mergeți înapoi"</string>
     <string name="towards">"către"</string>

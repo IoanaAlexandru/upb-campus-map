@@ -34,7 +34,7 @@ class NavigateFrag : Fragment() {
         data = ArrayList()
 
         /* Complete ListView with direction texts and its images */
-        UPBMap.navigate(UPBUser.src, UPBUser.dst ?: return rootView).forEach { directions.add(it.toString()) }
+        UPBMap.navigate(UPBUser.src, UPBUser.dst ?: return rootView).forEach { directions.add(it) }
 
         for (i in 0 until directions.size) {
             image.add(directions[i].getImage())
