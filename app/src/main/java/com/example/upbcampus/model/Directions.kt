@@ -31,7 +31,7 @@ class LocationDirection(loc: Node, private val info: Heading) :
     }
 
     override fun getImage(): Int =
-        if (info == Heading.UNKNOWN) R.drawable.baseline_my_location_24 else R.drawable.baseline_account_balance_24
+        if (info == Heading.UNKNOWN) R.drawable.baseline_my_location_24 else R.drawable.ic_baseline_location_on_24px
 }
 
 class EntranceDirection(private val loc: Node) : Direction(loc, loc) {
