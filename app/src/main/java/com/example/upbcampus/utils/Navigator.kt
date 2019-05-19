@@ -33,15 +33,23 @@ class Navigator (
                         dirs.add(IntersectionDirection(path[i-1], path[i+1], heading))
                 }
 
-                // TODO change to account for Stairs & Elevator
-//                is Vertical -> {
-//                    if (dirs[dirs.lastIndex] !is VerticalDirection) {
-//                        while (path[i+1] is Vertical) {
-//                            i++
-//                        }
-//                        dirs.add(VerticalDirection(node, path[i]))
-//                    }
-//                }
+                is Stairs -> {
+                    if (dirs[dirs.lastIndex] !is StairsDirection) {
+                        while (path[i+1] is Stairs) {
+                            i++
+                        }
+                        dirs.add(StairsDirection(node, path[i]))
+                    }
+                }
+
+                is Elevator -> {
+                    if (dirs[dirs.lastIndex] !is ElevatorDirection) {
+                        while (path[i+1] is Elevator) {
+                            i++
+                        }
+                        dirs.add(ElevatorDirection(node, path[i]))
+                    }
+                }
 
                 is Entrance -> {
                     dirs.add(EntranceDirection(node))
