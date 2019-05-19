@@ -108,14 +108,6 @@ fun displayPopUp(ctx: Context?, layoutInflater: LayoutInflater?, x: Float, y: Fl
     App.mActivity?.displayRoomInfo(room, ctx, layoutInflater)
 }
 
-fun PopupInfoByFrag() {
-
-}
-
-fun AddToFavouriteList(name: String, fav_list: MutableList<String>) {
-    fav_list.add(name)
-}
-
 fun setButtonStyleGray(ctx: Context?, button: Button?) {
     button?.setBackgroundColor(ctx?.resources!!.getColor(R.color.colorWhite))
     button?.setTextColor(ctx?.resources!!.getColor(R.color.colorDarkGray))
