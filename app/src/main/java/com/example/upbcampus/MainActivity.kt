@@ -119,8 +119,17 @@ class MainActivity : AppCompatActivity() {
         val navigateButton = view.findViewById(R.id.navigate_button) as Button
         navigateButton.setOnClickListener {
             UPBUser.dst = room
-            loadFragByTag(FRAG_NAVIGATE)
-            dialog.dismiss()
+            if (room == UPBUser.src) {
+                val toast = Toast.makeText(this, getString(R.string.dest_cant_be_src), Toast.LENGTH_LONG)
+                toast.show()
+            } else {
+                if (UPBUser.src == null) {
+                    val toast = Toast.makeText(this, getString(R.string.src_not_chosen), Toast.LENGTH_LONG)
+                    toast.show()
+                }
+                loadFragByTag(FRAG_NAVIGATE)
+                dialog.dismiss()
+            }
         }
 
         text.text = room.toString()

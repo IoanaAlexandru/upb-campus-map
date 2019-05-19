@@ -42,11 +42,13 @@
 
     <!--Toasts-->
     <string name="set_as_source">ales ca sursă</string>
-    <string name="not_found">Nu a fost găsit</string>
+    <string name="not_found">Locația nu a fost găsită</string>
+    <string name="dest_cant_be_src">Destinația nu poate fi aceeași ca sursa.</string>
+    <string name="src_not_chosen">Nu ați selectat sursa. A fost aleasă automat.</string>
 
     <!--Directions-->
-    <string name="descend">"Coboară"</string>
-    <string name="climb">"Urcă"</string>
+    <string name="descend">"Coborâți"</string>
+    <string name="climb">"Urcați"</string>
     <string name="floors">"etaje"</string>
     <string name="to_floor">"până la etajul"</string>
 
